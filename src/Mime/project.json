@@ -1,0 +1,23 @@
+﻿{
+  "title": "Mime",
+  "description": "Simple MIME type guesser for .NET and .NET Core. Uses libmagic through P/Invoke.",
+  "version": "1.0.0",
+  "authors": [ "red" ],
+  "packOptions": {
+    "summary": "Simple MIME type guesser for .NET and .NET Core. Uses libmagic through P/Invoke.",
+    "tags": [ "mime", "libmagic" ],
+    "releaseNotes": "Initial release."
+  },
+  "frameworks": {
+    "net451": {},
+    "netstandard1.3": {
+      "dependencies": {
+        "System.Runtime.InteropServices": "4.1.0"
+      }
+    }
+  },
+  "buildOptions": {
+    "allowUnsafe": true,
+    "keyFile": "../../key.snk"
+  }
+}
