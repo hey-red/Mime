@@ -8,6 +8,9 @@
     "tags": [ "mime", "libmagic" ],
     "releaseNotes": "Initial release."
   },
+  "dependencies": {
+    "Libmagic": "5.25.0"
+  },
   "frameworks": {
     "net451": {},
     "netstandard1.3": {
