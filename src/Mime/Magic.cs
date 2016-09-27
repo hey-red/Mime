@@ -17,7 +17,7 @@ namespace HeyRed.Mime
             if (MagicNative.magic_load(_magic, dbPath) == -1 && 
                 dbPath != null)
             {
-                throw new MagicException(GetLastMagicError());
+                throw new MagicException(GetLastError());
             }
         }
 
@@ -26,7 +26,7 @@ namespace HeyRed.Mime
             var str = Marshal.PtrToStringAnsi(MagicNative.magic_file(_magic, filePath));
             if (str == null)
             {
-                throw new MagicException(GetLastMagicError());
+                throw new MagicException(GetLastError());
             }
             return str;
         }
@@ -36,12 +36,12 @@ namespace HeyRed.Mime
             var str = Marshal.PtrToStringAnsi(MagicNative.magic_buffer(_magic, buffer, buffer.Length));
             if (str == null)
             {
-                throw new MagicException(GetLastMagicError());
+                throw new MagicException(GetLastError());
             }
             return str;
         }
 
-        private string GetLastMagicError()
+        private string GetLastError()
         {
             var err = Marshal.PtrToStringAnsi(MagicNative.magic_error(_magic));
             return char.ToUpper(err[0]) + err.Substring(1);
