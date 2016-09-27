@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HeyRed.Mime
+namespace HeyRed.MimeGuesser
 {
     public static class Mime
     {

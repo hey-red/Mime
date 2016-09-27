@@ -1,4 +1,4 @@
-﻿using HeyRed.Mime;
+﻿using HeyRed.MimeGuesser;
 using System;
 using System.IO;
 using Xunit;
