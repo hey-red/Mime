@@ -1,11 +1,14 @@
 ﻿{
   "title": "Mime",
-  "description": "Simple MIME type guesser for .NET and .NET Core. Uses libmagic through P/Invoke.",
+  "description": "Simple MIME type guesser for .NET and .NET Core.",
   "version": "1.0.0",
   "authors": [ "red" ],
   "packOptions": {
-    "summary": "Simple MIME type guesser for .NET and .NET Core. Uses libmagic through P/Invoke.",
-    "tags": [ "mime", "libmagic" ],
+    "summary": "Simple MIME type guesser for .NET and .NET Core. Uses libmagic through P/Invoke.\r\nPLEASE read readme in project repo.",
+    "tags": [ "mime", "mimetype", "libmagic" ],
+    "projectUrl": "https://github.com/hey-red/Mime",
+    "repository": { "type": "git" },
+    "licenseUrl": "https://raw.githubusercontent.com/hey-red/Mime/master/LICENSE",
     "releaseNotes": "Initial release."
   },
   "dependencies": {
