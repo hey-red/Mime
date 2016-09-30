@@ -18,10 +18,10 @@ GuessExtension methods working **only** with libmagic **version >= 5.23**
 ```C#
 using HeyRed.MimeGuesser;
 
-// Guess mime type of file(overloaded method takes byte array as arg.)
+// Guess mime type of file(overloaded method takes byte array or stream as arg.)
 Mime.GuessMimeType("path/to/file") //=> image/jpeg
 
-// Get extension of file(overloaded method takes byte array as arg.)
+// Get extension of file(overloaded method takes byte array or stream as arg.)
 Mime.GuessExtension("path/to/file") //=> jpeg
 ```
 
