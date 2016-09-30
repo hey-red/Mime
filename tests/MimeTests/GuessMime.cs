@@ -13,6 +13,8 @@ namespace MimeTests
         private static readonly string _testPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "TestData");
         #endif
 
+        private static readonly string _filePath = Path.Combine(_testPath, "test.jpeg");
+
         [Fact]
         public void GuessMimeFromFilePath()
         {
@@ -31,6 +33,18 @@ namespace MimeTests
             string actual = Mime.GuessMimeType(buffer);
 
             Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void GuessMimeFromStream()
+        {
+            using (var stream = File.OpenRead(_filePath))
+            {
+                string expected = "image/jpeg";
+                string actual = Mime.GuessMimeType(stream);
+
+                Assert.Equal(expected, actual);
+            }
         }
     }
 }

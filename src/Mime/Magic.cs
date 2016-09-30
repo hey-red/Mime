@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Runtime.InteropServices;
 
 namespace HeyRed.MimeGuesser
@@ -38,6 +39,21 @@ namespace HeyRed.MimeGuesser
                 throw new MagicException(GetLastError());
             }
             return str;
+        }
+
+        public string Read(Stream stream)
+        {
+            byte[] buffer;
+            if (stream is MemoryStream)
+            {
+                buffer = ((MemoryStream)stream).ToArray();
+            }
+            using (var ms = new MemoryStream())
+            {
+                stream.CopyTo(ms);
+                buffer = ms.ToArray();
+            }
+            return Read(buffer);
         }
 
         private string GetLastError()

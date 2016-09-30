@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace HeyRed.MimeGuesser
 {
@@ -45,6 +46,26 @@ namespace HeyRed.MimeGuesser
         }
 
         /// <summary>
+        /// Get mime type from stream
+        /// </summary>
+        /// <param name="stream"></param>
+        /// <returns>Mime type as string</returns>
+        public static string GuessMimeType(Stream stream)
+        {
+            if (stream == null)
+            {
+                throw new ArgumentNullException("stream");
+            }
+
+            using (var magic = new Magic(
+                MagicOpenFlags.MAGIC_ERROR |
+                MagicOpenFlags.MAGIC_MIME_TYPE))
+            {
+                return magic.Read(stream);
+            }
+        }
+
+        /// <summary>
         /// Get file extension from path
         /// </summary>
         /// <param name="filePath"></param>
@@ -81,6 +102,26 @@ namespace HeyRed.MimeGuesser
                 MagicOpenFlags.MAGIC_EXTENSION))
             {
                 return magic.Read(buffer).Split('/')[0];
+            }
+        }
+
+        /// <summary>
+        /// Get file extension from stream
+        /// </summary>
+        /// <param name="stream"></param>
+        /// <returns>First file extension as string</returns>
+        public static string GuessExtension(Stream stream)
+        {
+            if (stream == null)
+            {
+                throw new ArgumentNullException("stream");
+            }
+
+            using (var magic = new Magic(
+                MagicOpenFlags.MAGIC_ERROR |
+                MagicOpenFlags.MAGIC_EXTENSION))
+            {
+                return magic.Read(stream).Split('/')[0];
             }
         }
     }

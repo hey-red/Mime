@@ -13,12 +13,13 @@ namespace MimeTests
         private static readonly string _testPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "TestData");
         #endif
 
+        private static readonly string _filePath = Path.Combine(_testPath, "test.jpeg");
+
         [Fact]
         public void GuessExtensionFromFilePath()
         {
-            string path = Path.Combine(_testPath, "test.jpeg");
             string expected = "jpeg";
-            string actual = Mime.GuessExtension(path);
+            string actual = Mime.GuessExtension(_filePath);
 
             Assert.Equal(expected, actual);
         }
@@ -26,11 +27,23 @@ namespace MimeTests
         [Fact]
         public void GuessExtensionFromBuffer()
         {
-            byte[] buffer = File.ReadAllBytes(Path.Combine(_testPath, "test.jpeg"));
+            byte[] buffer = File.ReadAllBytes(_filePath);
             string expected = "jpeg";
             string actual = Mime.GuessExtension(buffer);
 
             Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void GuessExtensionFromStream()
+        {
+            using (var stream = File.OpenRead(_filePath))
+            {
+                string expected = "jpeg";
+                string actual = Mime.GuessExtension(stream);
+
+                Assert.Equal(expected, actual);
+            }
         }
     }
 }
