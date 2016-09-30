@@ -14,8 +14,7 @@ namespace HeyRed.MimeGuesser
             {
                 throw new MagicException("Cannot create magic cookie.");
             }
-            if (MagicNative.magic_load(_magic, dbPath) == -1 && 
-                dbPath != null)
+            if (MagicNative.magic_load(_magic, dbPath) != 0)
             {
                 throw new MagicException(GetLastError());
             }
