@@ -18,9 +18,8 @@ namespace MimeTests
         [Fact]
         public void GuessMimeFromFilePath()
         {
-            string path = Path.Combine(_testPath, "test.jpeg");
             string expected = "image/jpeg";
-            string actual = Mime.GuessMimeType(path);
+            string actual = Mime.GuessMimeType(_filePath);
 
             Assert.Equal(expected, actual);
         }
@@ -28,7 +27,7 @@ namespace MimeTests
         [Fact]
         public void GuessMimeFromBuffer()
         {
-            byte[] buffer = File.ReadAllBytes(Path.Combine(_testPath, "test.jpeg"));
+            byte[] buffer = File.ReadAllBytes(_filePath);
             string expected = "image/jpeg";
             string actual = Mime.GuessMimeType(buffer);
 
