@@ -3,6 +3,9 @@ using System.IO;
 
 namespace HeyRed.MimeGuesser
 {
+    /// <summary>
+    /// Static "facade" for <see cref="Magic"/>
+    /// </summary>
     public static class Mime
     {
         /// <summary>
@@ -69,7 +72,7 @@ namespace HeyRed.MimeGuesser
         /// Get file extension from path
         /// </summary>
         /// <param name="filePath"></param>
-        /// <returns>First file extension as string</returns>
+        /// <returns>First extension as string or empty string if extension not found</returns>
         public static string GuessExtension(string filePath)
         {
             if (filePath == null)
@@ -89,7 +92,7 @@ namespace HeyRed.MimeGuesser
         /// Get file extension from bytes buffer
         /// </summary>
         /// <param name="buffer"></param>
-        /// <returns>First file extension as string</returns>
+        /// <returns>First extension as string or empty string if extension not found</returns>
         public static string GuessExtension(byte[] buffer)
         {
             if (buffer == null)
@@ -109,7 +112,7 @@ namespace HeyRed.MimeGuesser
         /// Get file extension from stream
         /// </summary>
         /// <param name="stream"></param>
-        /// <returns>First file extension as string</returns>
+        /// <returns>First extension as string or empty string if extension not found</returns>
         public static string GuessExtension(Stream stream)
         {
             if (stream == null)
