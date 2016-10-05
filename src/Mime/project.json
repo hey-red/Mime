@@ -1,4 +1,4 @@
-﻿{
+{
   "title": "Mime",
   "description": "Simple MIME type guesser for .NET and .NET Core.",
   "version": "1.0.0",
@@ -18,7 +18,8 @@
     "net451": {},
     "netstandard1.3": {
       "dependencies": {
-        "System.Runtime.InteropServices": "4.1.0"
+        "System.Runtime.InteropServices": "4.1.0",
+        "System.Collections": "4.0.11"
       }
     }
   },
