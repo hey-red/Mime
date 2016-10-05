@@ -11,8 +11,6 @@ PM> Install-Package Mime
 Currently supports only Linux based OS(ex. Ubuntu 16.04), if you want to use package in Windows or MacOS, then you need to manually install libmagic.
 
 Open issue [here](https://github.com/hey-red/libmagic-package) if u want to maintain native libs for other OS.
-### Note
-GuessExtension methods working **only** with libmagic **version >= 5.23**
 
 ## Usage
 ```C#
