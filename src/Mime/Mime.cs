@@ -97,5 +97,41 @@ namespace HeyRed.MimeGuesser
         {
             return ApacheMimeTypes.LookupExtension(GuessMimeType(stream));
         }
+
+        /// <summary>
+        /// Get file type from path
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns>FileType</returns>
+        public static FileType GuessFileType(string filePath)
+        {
+            var mime = GuessMimeType(filePath);
+            var ext = ApacheMimeTypes.LookupExtension(mime);
+            return new FileType(mime, ext);
+        }
+
+        /// <summary>
+        /// Get file type from bytes buffer
+        /// </summary>
+        /// <param name="buffer"></param>
+        /// <returns>FileType</returns>
+        public static FileType GuessFileType(byte[] buffer)
+        {
+            var mime = GuessMimeType(buffer);
+            var ext = ApacheMimeTypes.LookupExtension(mime);
+            return new FileType(mime, ext);
+        }
+
+        /// <summary>
+        /// Get file type from stream
+        /// </summary>
+        /// <param name="stream"></param>
+        /// <returns>FileType</returns>
+        public static FileType GuessFileType(Stream stream)
+        {
+            var mime = GuessMimeType(stream);
+            var ext = ApacheMimeTypes.LookupExtension(mime);
+            return new FileType(mime, ext);
+        }
     }
 }
