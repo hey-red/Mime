@@ -8,6 +8,11 @@ namespace HeyRed.MimeGuesser
     {
         private IntPtr _magic;
 
+        public static int Version
+        {
+            get { return MagicNative.magic_version(); }
+        }
+
         public Magic(MagicOpenFlags flags, string dbPath = null)
         {
             _magic = MagicNative.magic_open(flags);

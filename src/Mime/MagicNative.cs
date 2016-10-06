@@ -22,5 +22,8 @@ namespace HeyRed.MimeGuesser
 
         [DllImport("libmagic1", CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr magic_error(IntPtr magic_cookie);
+
+        [DllImport("libmagic1", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int magic_version();
     }
 }
