@@ -9,6 +9,11 @@ namespace HeyRed.MimeGuesser
     public static class Mime
     {
         /// <summary>
+        /// Path to libmagic database file
+        /// </summary>
+        public static string MagicFilePath { get; set; } = null;
+
+        /// <summary>
         /// Get mime type from file
         /// </summary>
         /// <param name="filePath"></param>
@@ -22,7 +27,8 @@ namespace HeyRed.MimeGuesser
 
             using (var magic = new Magic(
                 MagicOpenFlags.MAGIC_ERROR | 
-                MagicOpenFlags.MAGIC_MIME_TYPE))
+                MagicOpenFlags.MAGIC_MIME_TYPE,
+                MagicFilePath))
             {
                 return magic.Read(filePath);
             }
@@ -42,7 +48,8 @@ namespace HeyRed.MimeGuesser
 
             using (var magic = new Magic(
                 MagicOpenFlags.MAGIC_ERROR |
-                MagicOpenFlags.MAGIC_MIME_TYPE))
+                MagicOpenFlags.MAGIC_MIME_TYPE,
+                MagicFilePath))
             {
                 return magic.Read(buffer);
             }
@@ -62,7 +69,8 @@ namespace HeyRed.MimeGuesser
 
             using (var magic = new Magic(
                 MagicOpenFlags.MAGIC_ERROR |
-                MagicOpenFlags.MAGIC_MIME_TYPE))
+                MagicOpenFlags.MAGIC_MIME_TYPE,
+                MagicFilePath))
             {
                 return magic.Read(stream);
             }
