@@ -14,6 +14,13 @@ namespace HeyRed.MimeGuesser
         public static string MagicFilePath { get; set; } = null;
 
         /// <summary>
+        /// Libmagic open flags for getting file type
+        /// </summary>
+        private static readonly MagicOpenFlags MagicMimeFlags = 
+            MagicOpenFlags.MAGIC_ERROR | 
+            MagicOpenFlags.MAGIC_MIME_TYPE;
+
+        /// <summary>
         /// Get mime type from file
         /// </summary>
         /// <param name="filePath"></param>
@@ -25,10 +32,7 @@ namespace HeyRed.MimeGuesser
                 throw new ArgumentNullException("filePath");
             }
 
-            using (var magic = new Magic(
-                MagicOpenFlags.MAGIC_ERROR | 
-                MagicOpenFlags.MAGIC_MIME_TYPE,
-                MagicFilePath))
+            using (var magic = new Magic(MagicMimeFlags, MagicFilePath))
             {
                 return magic.Read(filePath);
             }
@@ -46,10 +50,7 @@ namespace HeyRed.MimeGuesser
                 throw new ArgumentNullException("buffer");
             }
 
-            using (var magic = new Magic(
-                MagicOpenFlags.MAGIC_ERROR |
-                MagicOpenFlags.MAGIC_MIME_TYPE,
-                MagicFilePath))
+            using (var magic = new Magic(MagicMimeFlags, MagicFilePath))
             {
                 return magic.Read(buffer);
             }
@@ -67,10 +68,7 @@ namespace HeyRed.MimeGuesser
                 throw new ArgumentNullException("stream");
             }
 
-            using (var magic = new Magic(
-                MagicOpenFlags.MAGIC_ERROR |
-                MagicOpenFlags.MAGIC_MIME_TYPE,
-                MagicFilePath))
+            using (var magic = new Magic(MagicMimeFlags, MagicFilePath))
             {
                 return magic.Read(stream);
             }
