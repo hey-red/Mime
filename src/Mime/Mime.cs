@@ -21,6 +21,25 @@ namespace HeyRed.MimeGuesser
             MagicOpenFlags.MAGIC_MIME_TYPE;
 
         /// <summary>
+        /// Add or update mime type map
+        /// </summary>
+        /// <param name="mime"></param>
+        /// <param name="extension"></param>
+        public static void AddOrUpdateMimeTypeMap(string mime, string extension)
+        {
+            if (mime == null)
+            {
+                throw new ArgumentNullException("mime");
+            }
+            if (extension == null)
+            {
+                throw new ArgumentNullException("extension");
+            }
+
+            ApacheMimeTypes.AddOrUpdate(mime, extension);
+        }
+
+        /// <summary>
         /// Get mime type from file
         /// </summary>
         /// <param name="filePath"></param>
