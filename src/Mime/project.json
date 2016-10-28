@@ -1,7 +1,7 @@
 {
   "title": "Mime",
   "description": "Simple MIME type guesser for .NET and .NET Core.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "authors": [ "red" ],
   "packOptions": {
     "summary": "Simple MIME type guesser for .NET and .NET Core. Uses libmagic through P/Invoke.",
@@ -9,7 +9,7 @@
     "projectUrl": "https://github.com/hey-red/Mime",
     "repository": { "type": "git" },
     "licenseUrl": "https://raw.githubusercontent.com/hey-red/Mime/master/LICENSE",
-    "releaseNotes": "Massive improvements(See README in project repo)."
+    "releaseNotes": "Added magic_version method.\r\nAdded property to set magic db path.\r\nAdded method for adding/updating apache type map."
   },
   "dependencies": {
     "Libmagic": "5.25.0"
