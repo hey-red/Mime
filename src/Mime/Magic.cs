@@ -53,10 +53,13 @@ namespace HeyRed.MimeGuesser
             {
                 buffer = ((MemoryStream)stream).ToArray();
             }
-            using (var ms = new MemoryStream())
+            else
             {
-                stream.CopyTo(ms);
-                buffer = ms.ToArray();
+                using (var ms = new MemoryStream())
+                {
+                    stream.CopyTo(ms);
+                    buffer = ms.ToArray();
+                }
             }
             return Read(buffer);
         }
