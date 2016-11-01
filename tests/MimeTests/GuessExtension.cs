@@ -1,5 +1,4 @@
 ﻿using HeyRed.MimeGuesser;
-using System;
 using System.IO;
 using Xunit;
 
@@ -7,19 +6,11 @@ namespace MimeTests
 {
     public class GuessExtension
     {
-        #if !NET451
-        private static readonly string _testPath = Path.Combine(AppContext.BaseDirectory, "TestData");
-        #else
-        private static readonly string _testPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "TestData");
-        #endif
-
-        private static readonly string _filePath = Path.Combine(_testPath, "test.jpeg");
-
         [Fact]
         public void GuessExtensionFromFilePath()
         {
             string expected = "jpeg";
-            string actual = Mime.GuessExtension(_filePath);
+            string actual = Mime.GuessExtension(ResourceUtils.TestDataPath);
 
             Assert.Equal(expected, actual);
         }
@@ -27,7 +18,7 @@ namespace MimeTests
         [Fact]
         public void GuessExtensionFromBuffer()
         {
-            byte[] buffer = File.ReadAllBytes(_filePath);
+            byte[] buffer = File.ReadAllBytes(ResourceUtils.TestDataPath);
             string expected = "jpeg";
             string actual = Mime.GuessExtension(buffer);
 
@@ -37,7 +28,7 @@ namespace MimeTests
         [Fact]
         public void GuessExtensionFromStream()
         {
-            using (var stream = File.OpenRead(_filePath))
+            using (var stream = File.OpenRead(ResourceUtils.TestDataPath))
             {
                 string expected = "jpeg";
                 string actual = Mime.GuessExtension(stream);
