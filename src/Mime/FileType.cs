@@ -1,6 +1,6 @@
 ﻿namespace HeyRed.MimeGuesser
 {
-    public class FileType
+    public struct FileType
     {
         public string MimeType { get; }
         public string Extension { get; }

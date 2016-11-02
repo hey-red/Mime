@@ -12,7 +12,7 @@ namespace MimeTests
             FileType expected = new FileType("image/jpeg", "jpeg");
             FileType actual = Mime.GuessFileType(ResourceUtils.TestDataPath);
 
-            Assert.Equal(expected, actual, new FileTypeComparer());
+            Assert.Equal(expected, actual);
         }
 
         [Fact]
@@ -22,7 +22,7 @@ namespace MimeTests
             FileType expected = new FileType("image/jpeg", "jpeg");
             FileType actual = Mime.GuessFileType(buffer);
 
-            Assert.Equal(expected, actual, new FileTypeComparer());
+            Assert.Equal(expected, actual);
         }
 
         [Fact]
@@ -33,7 +33,7 @@ namespace MimeTests
                 FileType expected = new FileType("image/jpeg", "jpeg");
                 FileType actual = Mime.GuessFileType(stream);
 
-                Assert.Equal(expected, actual, new FileTypeComparer());
+                Assert.Equal(expected, actual);
             }
         }
     }
