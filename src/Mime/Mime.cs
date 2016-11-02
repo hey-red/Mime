@@ -158,5 +158,35 @@ namespace HeyRed.MimeGuesser
             var ext = ApacheMimeTypes.LookupExtension(mime);
             return new FileType(mime, ext);
         }
+
+        /// <summary>
+        /// <see cref="GuessMimeType(string)"/>
+        /// </summary>
+        /// <param name="fi"></param>
+        /// <returns>Mime type as string</returns>
+        public static string GuessMimeType(this FileInfo fi)
+        {
+            return GuessMimeType(fi.FullName);
+        }
+
+        /// <summary>
+        /// <see cref="GuessExtension(string)"/>
+        /// </summary>
+        /// <param name="fi"></param>
+        /// <returns></returns>
+        public static string GuessExtension(this FileInfo fi)
+        {
+            return GuessExtension(fi.FullName);
+        }
+
+        /// <summary>
+        /// <see cref="GuessFileType(string)"/>
+        /// </summary>
+        /// <param name="fi"></param>
+        /// <returns></returns>
+        public static FileType GuessFileType(this FileInfo fi)
+        {
+            return GuessFileType(fi.FullName);
+        }
     }
 }

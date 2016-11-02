@@ -19,6 +19,7 @@
     "netstandard1.3": {
       "dependencies": {
         "System.Runtime.InteropServices": "4.1.0",
+        "System.IO.FileSystem": "4.0.1",
         "System.Collections": "4.0.11"
       }
     }
