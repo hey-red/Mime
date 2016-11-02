@@ -22,7 +22,7 @@ namespace HeyRed.MimeGuesser
 		private static Lazy<Dictionary<string, string>> _mimeTypeMap = new Lazy<Dictionary<string, string>>(
 		() => new Dictionary<string, string>() {
 		<# foreach (var t in mimeTypes) { #>
-		{ "<#= t.Key #>", "<#= t.Value #>" },
+	["<#= t.Key #>"] = "<#= t.Value #>",
 		<# } #>
 });
 		
