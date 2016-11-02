@@ -39,6 +39,8 @@ namespace HeyRed.MimeGuesser
             ApacheMimeTypes.AddOrUpdate(mime, extension);
         }
 
+        #region Guess mime type
+
         /// <summary>
         /// Get mime type from file
         /// </summary>
@@ -94,6 +96,20 @@ namespace HeyRed.MimeGuesser
         }
 
         /// <summary>
+        /// <see cref="GuessMimeType(string)"/>
+        /// </summary>
+        /// <param name="fi"></param>
+        /// <returns>Mime type as string</returns>
+        public static string GuessMimeType(this FileInfo fi)
+        {
+            return GuessMimeType(fi.FullName);
+        }
+
+        #endregion
+
+        #region Guess extension
+
+        /// <summary>
         /// Get file extension from path
         /// </summary>
         /// <param name="filePath"></param>
@@ -122,6 +138,20 @@ namespace HeyRed.MimeGuesser
         {
             return ApacheMimeTypes.LookupExtension(GuessMimeType(stream));
         }
+
+        /// <summary>
+        /// <see cref="GuessExtension(string)"/>
+        /// </summary>
+        /// <param name="fi"></param>
+        /// <returns></returns>
+        public static string GuessExtension(this FileInfo fi)
+        {
+            return GuessExtension(fi.FullName);
+        }
+
+        #endregion
+
+        #region Guess file type
 
         /// <summary>
         /// Get file type from path
@@ -160,26 +190,6 @@ namespace HeyRed.MimeGuesser
         }
 
         /// <summary>
-        /// <see cref="GuessMimeType(string)"/>
-        /// </summary>
-        /// <param name="fi"></param>
-        /// <returns>Mime type as string</returns>
-        public static string GuessMimeType(this FileInfo fi)
-        {
-            return GuessMimeType(fi.FullName);
-        }
-
-        /// <summary>
-        /// <see cref="GuessExtension(string)"/>
-        /// </summary>
-        /// <param name="fi"></param>
-        /// <returns></returns>
-        public static string GuessExtension(this FileInfo fi)
-        {
-            return GuessExtension(fi.FullName);
-        }
-
-        /// <summary>
         /// <see cref="GuessFileType(string)"/>
         /// </summary>
         /// <param name="fi"></param>
@@ -188,5 +198,7 @@ namespace HeyRed.MimeGuesser
         {
             return GuessFileType(fi.FullName);
         }
+
+        #endregion
     }
 }
