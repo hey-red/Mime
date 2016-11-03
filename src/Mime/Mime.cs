@@ -18,7 +18,13 @@ namespace HeyRed.MimeGuesser
         /// </summary>
         private static readonly MagicOpenFlags MagicMimeFlags = 
             MagicOpenFlags.MAGIC_ERROR | 
-            MagicOpenFlags.MAGIC_MIME_TYPE;
+            MagicOpenFlags.MAGIC_MIME_TYPE |
+            MagicOpenFlags.MAGIC_NO_CHECK_COMPRESS |
+            MagicOpenFlags.MAGIC_NO_CHECK_TAR |
+            MagicOpenFlags.MAGIC_NO_CHECK_ELF |
+            MagicOpenFlags.MAGIC_NO_CHECK_APPTYPE |
+            MagicOpenFlags.MAGIC_NO_CHECK_TEXT |
+            MagicOpenFlags.MAGIC_NO_CHECK_ENCODING;
 
         /// <summary>
         /// Add or update mime type map
