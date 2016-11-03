@@ -143,7 +143,7 @@ namespace HeyRed.MimeGuesser
         /// <see cref="GuessExtension(string)"/>
         /// </summary>
         /// <param name="fi"></param>
-        /// <returns></returns>
+        /// <returns>Extension as string</returns>
         public static string GuessExtension(this FileInfo fi)
         {
             return GuessExtension(fi.FullName);
@@ -193,7 +193,7 @@ namespace HeyRed.MimeGuesser
         /// <see cref="GuessFileType(string)"/>
         /// </summary>
         /// <param name="fi"></param>
-        /// <returns></returns>
+        /// <returns>FileType</returns>
         public static FileType GuessFileType(this FileInfo fi)
         {
             return GuessFileType(fi.FullName);
