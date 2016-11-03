@@ -42,7 +42,7 @@ namespace MimeTests
         {
             FileType expected = new FileType("image/jpeg", "jpeg");
             var fi = new FileInfo(ResourceUtils.TestDataPath);
-            FileType actual = Mime.GuessFileType(fi);
+            FileType actual = fi.GuessFileType();
 
             Assert.Equal(expected, actual);
         }

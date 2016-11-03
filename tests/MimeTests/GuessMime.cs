@@ -42,7 +42,7 @@ namespace MimeTests
         {
             string expected = "image/jpeg";
             var fi = new FileInfo(ResourceUtils.TestDataPath);
-            string actual = Mime.GuessMimeType(fi);
+            string actual = fi.GuessMimeType();
 
             Assert.Equal(expected, actual);
         }
