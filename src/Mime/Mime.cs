@@ -64,7 +64,7 @@ namespace HeyRed.MimeGuesser
         /// </summary>
         /// <param name="buffer"></param>
         /// <returns>Mime type as string</returns>
-        public static string GuessMimeType(byte[] buffer)
+        public static string GuessMimeType(byte[] buffer, int size = 512)
         {
             if (buffer == null)
             {
@@ -73,7 +73,7 @@ namespace HeyRed.MimeGuesser
 
             using (var magic = new Magic(MagicMimeFlags, MagicFilePath))
             {
-                return magic.Read(buffer);
+                return magic.Read(buffer, size);
             }
         }
 
@@ -82,7 +82,7 @@ namespace HeyRed.MimeGuesser
         /// </summary>
         /// <param name="stream"></param>
         /// <returns>Mime type as string</returns>
-        public static string GuessMimeType(Stream stream)
+        public static string GuessMimeType(Stream stream, int size = 512)
         {
             if (stream == null)
             {
@@ -91,7 +91,7 @@ namespace HeyRed.MimeGuesser
 
             using (var magic = new Magic(MagicMimeFlags, MagicFilePath))
             {
-                return magic.Read(stream);
+                return magic.Read(stream, size);
             }
         }
 
@@ -124,9 +124,9 @@ namespace HeyRed.MimeGuesser
         /// </summary>
         /// <param name="buffer"></param>
         /// <returns>Extension as string</returns>
-        public static string GuessExtension(byte[] buffer)
+        public static string GuessExtension(byte[] buffer, int size = 512)
         {
-            return ApacheMimeTypes.LookupExtension(GuessMimeType(buffer));
+            return ApacheMimeTypes.LookupExtension(GuessMimeType(buffer, size));
         }
 
         /// <summary>
@@ -134,9 +134,9 @@ namespace HeyRed.MimeGuesser
         /// </summary>
         /// <param name="stream"></param>
         /// <returns>Extension as string</returns>
-        public static string GuessExtension(Stream stream)
+        public static string GuessExtension(Stream stream, int size = 512)
         {
-            return ApacheMimeTypes.LookupExtension(GuessMimeType(stream));
+            return ApacheMimeTypes.LookupExtension(GuessMimeType(stream, size));
         }
 
         /// <summary>
@@ -170,9 +170,9 @@ namespace HeyRed.MimeGuesser
         /// </summary>
         /// <param name="buffer"></param>
         /// <returns>FileType</returns>
-        public static FileType GuessFileType(byte[] buffer)
+        public static FileType GuessFileType(byte[] buffer, int size = 512)
         {
-            var mime = GuessMimeType(buffer);
+            var mime = GuessMimeType(buffer, size);
             var ext = ApacheMimeTypes.LookupExtension(mime);
             return new FileType(mime, ext);
         }
@@ -182,9 +182,9 @@ namespace HeyRed.MimeGuesser
         /// </summary>
         /// <param name="stream"></param>
         /// <returns>FileType</returns>
-        public static FileType GuessFileType(Stream stream)
+        public static FileType GuessFileType(Stream stream, int size = 512)
         {
-            var mime = GuessMimeType(stream);
+            var mime = GuessMimeType(stream, size);
             var ext = ApacheMimeTypes.LookupExtension(mime);
             return new FileType(mime, ext);
         }

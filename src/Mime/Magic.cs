@@ -36,9 +36,9 @@ namespace HeyRed.MimeGuesser
             return str;
         }
 
-        public string Read(byte[] buffer)
+        public string Read(byte[] buffer, int size = 512)
         {
-            var str = Marshal.PtrToStringAnsi(MagicNative.magic_buffer(_magic, buffer, buffer.Length));
+            var str = Marshal.PtrToStringAnsi(MagicNative.magic_buffer(_magic, buffer, size));
             if (str == null)
             {
                 throw new MagicException(GetLastError());
@@ -46,22 +46,18 @@ namespace HeyRed.MimeGuesser
             return str;
         }
 
-        public string Read(Stream stream)
+        public string Read(Stream stream, int size = 512)
         {
-            byte[] buffer;
-            if (stream is MemoryStream)
+            byte[] buffer = new byte[size];
+            int offset = 0;
+            while (offset < size)
             {
-                buffer = ((MemoryStream)stream).ToArray();
+                int read = stream.Read(buffer, offset, size - offset);
+                if (read == 0) break;
+                offset += read;
             }
-            else
-            {
-                using (var ms = new MemoryStream())
-                {
-                    stream.CopyTo(ms);
-                    buffer = ms.ToArray();
-                }
-            }
-            return Read(buffer);
+            stream.Position = 0;
+            return Read(buffer, size);
         }
 
         private string GetLastError()
