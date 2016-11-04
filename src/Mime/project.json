@@ -1,7 +1,7 @@
 {
   "title": "Mime",
   "description": "Simple MIME type guesser for .NET and .NET Core.",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "authors": [ "red" ],
   "packOptions": {
     "summary": "Simple MIME type guesser for .NET and .NET Core. Uses libmagic through P/Invoke.",
@@ -9,7 +9,7 @@
     "projectUrl": "https://github.com/hey-red/Mime",
     "repository": { "type": "git" },
     "licenseUrl": "https://raw.githubusercontent.com/hey-red/Mime/master/LICENSE",
-    "releaseNotes": "Fix error in read stream method."
+    "releaseNotes": "Added optional argument to define max buffer size.\r\nAdded extension method for FileInfo.\r\n"
   },
   "dependencies": {
     "Libmagic": "5.25.0"
