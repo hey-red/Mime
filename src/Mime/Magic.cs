@@ -13,6 +13,15 @@ namespace HeyRed.MimeGuesser
             get { return MagicNative.magic_version(); }
         }
 
+        private string LastError
+        {
+            get
+            {
+                var err = Marshal.PtrToStringAnsi(MagicNative.magic_error(_magic));
+                return char.ToUpper(err[0]) + err.Substring(1);
+            }
+        }
+
         public Magic(MagicOpenFlags flags, string dbPath = null)
         {
             _magic = MagicNative.magic_open(flags);
@@ -22,7 +31,7 @@ namespace HeyRed.MimeGuesser
             }
             if (MagicNative.magic_load(_magic, dbPath) != 0)
             {
-                throw new MagicException(GetLastError());
+                throw new MagicException(LastError);
             }
         }
 
@@ -31,7 +40,7 @@ namespace HeyRed.MimeGuesser
             var str = Marshal.PtrToStringAnsi(MagicNative.magic_file(_magic, filePath));
             if (str == null)
             {
-                throw new MagicException(GetLastError());
+                throw new MagicException(LastError);
             }
             return str;
         }
@@ -41,7 +50,7 @@ namespace HeyRed.MimeGuesser
             var str = Marshal.PtrToStringAnsi(MagicNative.magic_buffer(_magic, buffer, size));
             if (str == null)
             {
-                throw new MagicException(GetLastError());
+                throw new MagicException(LastError);
             }
             return str;
         }
@@ -58,12 +67,6 @@ namespace HeyRed.MimeGuesser
             }
             stream.Position = 0;
             return Read(buffer, size);
-        }
-
-        private string GetLastError()
-        {
-            var err = Marshal.PtrToStringAnsi(MagicNative.magic_error(_magic));
-            return char.ToUpper(err[0]) + err.Substring(1);
         }
 
         #region IDisposable support
