@@ -29,6 +29,7 @@ Mime.GuessExtension("path/to/file") //=> jpeg
 // Get mime type and extension of file(overloaded method takes byte array or stream as arg.)
 Mime.GuessFileType("path/to/file") //=> FileType
 ```
+Also available extension methods for FileInfo.
 
 ## License
 [MIT](\LICENSE)
