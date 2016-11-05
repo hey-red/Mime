@@ -65,7 +65,10 @@ namespace HeyRed.MimeGuesser
                 if (read == 0) break;
                 offset += read;
             }
-            stream.Position = 0;
+            if (stream.CanSeek)
+            {
+                stream.Position = 0;
+            }
             return Read(buffer, size);
         }
 
