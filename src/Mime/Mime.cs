@@ -46,7 +46,6 @@ namespace HeyRed.MimeGuesser
         }
 
         #region Guess mime type
-
         /// <summary>
         /// Get mime type from file
         /// </summary>
@@ -110,11 +109,9 @@ namespace HeyRed.MimeGuesser
         {
             return GuessMimeType(fi.FullName);
         }
-
         #endregion
 
         #region Guess extension
-
         /// <summary>
         /// Get file extension from path
         /// </summary>
@@ -154,11 +151,9 @@ namespace HeyRed.MimeGuesser
         {
             return GuessExtension(fi.FullName);
         }
-
         #endregion
 
         #region Guess file type
-
         /// <summary>
         /// Get file type from path
         /// </summary>
@@ -204,7 +199,6 @@ namespace HeyRed.MimeGuesser
         {
             return GuessFileType(fi.FullName);
         }
-
         #endregion
     }
 }
