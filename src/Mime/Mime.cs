@@ -23,7 +23,6 @@ namespace HeyRed.MimeGuesser
             MagicOpenFlags.MAGIC_NO_CHECK_TAR |
             MagicOpenFlags.MAGIC_NO_CHECK_ELF |
             MagicOpenFlags.MAGIC_NO_CHECK_APPTYPE |
-            MagicOpenFlags.MAGIC_NO_CHECK_TEXT |
             MagicOpenFlags.MAGIC_NO_CHECK_ENCODING;
 
         /// <summary>
