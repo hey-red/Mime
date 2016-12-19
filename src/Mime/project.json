@@ -12,7 +12,8 @@
     "releaseNotes": "Rename namespace and facade name."
   },
   "dependencies": {
-    "Libmagic": "5.25.0"
+    "Libmagic": "5.25.0",
+    "MimeTypesMap":  "1.*"
   },
   "frameworks": {
     "net451": {},
