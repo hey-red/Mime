@@ -23,7 +23,6 @@ MimeGuesser.MagicFilePath = "/path/to/magic/file";
 MimeGuesser.GuessMimeType("path/to/file") //=> image/jpeg
 
 // Get extension of file(overloaded method takes byte array or stream as arg.)
-// You can also add or update mime map via AddOrUpdateMimeTypeMap(string mime, string extension) method.
 MimeGuesser.GuessExtension("path/to/file") //=> jpeg
 
 // Get mime type and extension of file(overloaded method takes byte array or stream as arg.)
