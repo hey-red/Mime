@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HeyRed.MimeGuesser
+namespace HeyRed.Mime
 {
     [Flags]
     public enum MagicOpenFlags

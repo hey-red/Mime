@@ -1,4 +1,4 @@
-﻿using HeyRed.MimeGuesser;
+﻿using HeyRed.Mime;
 using System.IO;
 using Xunit;
 
@@ -10,7 +10,7 @@ namespace MimeTests
         public void GuessFileTypeFromFilePath()
         {
             FileType expected = new FileType("image/jpeg", "jpeg");
-            FileType actual = Mime.GuessFileType(ResourceUtils.TestDataPath);
+            FileType actual = MimeGuesser.GuessFileType(ResourceUtils.TestDataPath);
 
             Assert.Equal(expected, actual);
         }
@@ -20,7 +20,7 @@ namespace MimeTests
         {
             byte[] buffer = File.ReadAllBytes(ResourceUtils.TestDataPath);
             FileType expected = new FileType("image/jpeg", "jpeg");
-            FileType actual = Mime.GuessFileType(buffer);
+            FileType actual = MimeGuesser.GuessFileType(buffer);
 
             Assert.Equal(expected, actual);
         }
@@ -31,7 +31,7 @@ namespace MimeTests
             using (var stream = File.OpenRead(ResourceUtils.TestDataPath))
             {
                 FileType expected = new FileType("image/jpeg", "jpeg");
-                FileType actual = Mime.GuessFileType(stream);
+                FileType actual = MimeGuesser.GuessFileType(stream);
 
                 Assert.Equal(expected, actual);
             }

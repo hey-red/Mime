@@ -1,4 +1,4 @@
-﻿namespace HeyRed.MimeGuesser
+﻿namespace HeyRed.Mime
 {
     public struct FileType
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HeyRed.MimeGuesser
+namespace HeyRed.Mime
 {
     internal class MagicException : Exception
     {

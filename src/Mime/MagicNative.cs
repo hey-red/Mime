@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace HeyRed.MimeGuesser
+namespace HeyRed.Mime
 {
     internal static class MagicNative
     {

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.IO;
 
-namespace HeyRed.MimeGuesser
+namespace HeyRed.Mime
 {
     /// <summary>
     /// Static "facade" for <see cref="Magic"/>
     /// </summary>
-    public static class Mime
+    public static class MimeGuesser
     {
         /// <summary>
         /// Path to libmagic database file

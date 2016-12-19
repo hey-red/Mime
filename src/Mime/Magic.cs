@@ -2,7 +2,7 @@
 using System.IO;
 using System.Runtime.InteropServices;
 
-namespace HeyRed.MimeGuesser
+namespace HeyRed.Mime
 {
     public class Magic : IDisposable
     {
