@@ -24,25 +24,6 @@ namespace HeyRed.Mime
             MagicOpenFlags.MAGIC_NO_CHECK_APPTYPE |
             MagicOpenFlags.MAGIC_NO_CHECK_ENCODING;
 
-        /// <summary>
-        /// Add or update mime type map
-        /// </summary>
-        /// <param name="mime"></param>
-        /// <param name="extension"></param>
-        public static void AddOrUpdateMimeTypeMap(string mime, string extension)
-        {
-            if (mime == null)
-            {
-                throw new ArgumentNullException("mime");
-            }
-            if (extension == null)
-            {
-                throw new ArgumentNullException("extension");
-            }
-
-            ApacheMimeTypes.AddOrUpdate(mime, extension);
-        }
-
         #region Guess mime type
         /// <summary>
         /// Get mime type from file
@@ -117,7 +98,7 @@ namespace HeyRed.Mime
         /// <returns>Extension as string</returns>
         public static string GuessExtension(string filePath)
         {
-            return ApacheMimeTypes.LookupExtension(GuessMimeType(filePath));
+            return MimeTypesMap.GetExtension(GuessMimeType(filePath));
         }
 
         /// <summary>
@@ -127,7 +108,7 @@ namespace HeyRed.Mime
         /// <returns>Extension as string</returns>
         public static string GuessExtension(byte[] buffer, int size = 512)
         {
-            return ApacheMimeTypes.LookupExtension(GuessMimeType(buffer, size));
+            return MimeTypesMap.GetExtension(GuessMimeType(buffer, size));
         }
 
         /// <summary>
@@ -137,7 +118,7 @@ namespace HeyRed.Mime
         /// <returns>Extension as string</returns>
         public static string GuessExtension(Stream stream, int size = 512)
         {
-            return ApacheMimeTypes.LookupExtension(GuessMimeType(stream, size));
+            return MimeTypesMap.GetExtension(GuessMimeType(stream, size));
         }
 
         /// <summary>
@@ -160,7 +141,7 @@ namespace HeyRed.Mime
         public static FileType GuessFileType(string filePath)
         {
             var mime = GuessMimeType(filePath);
-            var ext = ApacheMimeTypes.LookupExtension(mime);
+            var ext = MimeTypesMap.GetExtension(mime);
             return new FileType(mime, ext);
         }
 
@@ -172,7 +153,7 @@ namespace HeyRed.Mime
         public static FileType GuessFileType(byte[] buffer, int size = 512)
         {
             var mime = GuessMimeType(buffer, size);
-            var ext = ApacheMimeTypes.LookupExtension(mime);
+            var ext = MimeTypesMap.GetExtension(mime);
             return new FileType(mime, ext);
         }
 
@@ -184,7 +165,7 @@ namespace HeyRed.Mime
         public static FileType GuessFileType(Stream stream, int size = 512)
         {
             var mime = GuessMimeType(stream, size);
-            var ext = ApacheMimeTypes.LookupExtension(mime);
+            var ext = MimeTypesMap.GetExtension(mime);
             return new FileType(mime, ext);
         }
 
