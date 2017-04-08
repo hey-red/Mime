@@ -5,7 +5,7 @@ namespace HeyRed.Mime
 {
     internal static class MagicNative
     {
-        private const string MAGIC_LIB_PATH = "libmagic1";
+        private const string MAGIC_LIB_PATH = "libmagic-1";
 
         [DllImport(MAGIC_LIB_PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr magic_open(MagicOpenFlags flags);
