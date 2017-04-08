@@ -25,7 +25,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Libmagic" Version="5.29.1" />
+    <PackageReference Include="Libmagic" Version="5.30.0" />
     <PackageReference Include="MimeTypesMap" Version="1.*" />
     <PackageReference Include="System.Collections" Version="4.3.0" />
   </ItemGroup>
