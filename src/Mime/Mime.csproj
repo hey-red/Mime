@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Simple MIME type guesser for .NET and .NET Core.</Description>
+    <AssemblyTitle>Mime</AssemblyTitle>
+    <VersionPrefix>2.0.0</VersionPrefix>
+    <Authors>red</Authors>
+    <TargetFrameworks>net451;netstandard1.3</TargetFrameworks>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyName>Mime</AssemblyName>
+    <AssemblyOriginatorKeyFile>../../key.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
+    <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
+    <PackageId>Mime</PackageId>
+    <PackageTags>mime;mimetype;libmagic</PackageTags>
+    <PackageReleaseNotes>Windows support out of box(x64)</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/hey-red/Mime</PackageProjectUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/hey-red/Mime/master/LICENSE</PackageLicenseUrl>
+    <RepositoryType>git</RepositoryType>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>2.1.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Libmagic" Version="5.29.1" />
+    <PackageReference Include="MimeTypesMap" Version="1.*" />
+    <PackageReference Include="System.Collections" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net451' ">
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
+    <PackageReference Include="System.Runtime.InteropServices" Version="4.3.0" />
+    <PackageReference Include="System.IO.FileSystem" Version="4.3.0" />
+    <PackageReference Include="System.Collections" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>

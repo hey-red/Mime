@@ -1,20 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{741239A5-F1DB-46CF-85AB-AEF531574975}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BF95A81F-DA1D-4790-917B-51DCFFA9F94D}"
-	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
-	EndProjectSection
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Mime", "src\Mime\Mime.xproj", "{08FAB9A9-6B82-4CE8-9641-423190F6206B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0838A366-8840-459B-898F-B5974D5B5582}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MimeTests", "test\MimeTests\MimeTests.xproj", "{EFF34B03-3E19-442E-947B-826976EF3552}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mime", "src\Mime\Mime.csproj", "{08FAB9A9-6B82-4CE8-9641-423190F6206B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MimeTests", "test\MimeTests\MimeTests.csproj", "{EFF34B03-3E19-442E-947B-826976EF3552}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
