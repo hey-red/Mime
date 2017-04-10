@@ -5,7 +5,7 @@ namespace MimeTests
 {
     public static class ResourceUtils
     {
-        #if !NET451
+        #if !NET452
         private static readonly string _testPath = Path.Combine(AppContext.BaseDirectory, "TestData");
         #else
         private static readonly string _testPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "TestData");
