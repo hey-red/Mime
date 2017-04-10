@@ -8,9 +8,7 @@ PM> Install-Package Mime
 ```
 
 ## Requirements
-Supports x64 OS(Linux and Windows).
-
-Open issue [here](https://github.com/hey-red/libmagic-package) if u want to maintain native libs for other OS.
+Supports x64 OS(Linux and Windows). With .NET Framework you need to set platform x64.
 
 ## Usage
 ```C#
