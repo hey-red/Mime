@@ -8,7 +8,7 @@ PM> Install-Package Mime
 ```
 
 ## Requirements
-Supports x64 OS(Linux and Windows). With .NET Framework you need to set platform x64.
+Supports x64 OS(Linux, MacOS and Windows).
 
 ## Usage
 ```C#
