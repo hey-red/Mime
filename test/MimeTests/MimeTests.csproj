@@ -37,6 +37,9 @@
   <ItemGroup Condition=" ('$(Platform)' == 'x64' OR '$(Platform)' == 'AnyCPU') AND '$(OS)' == 'Windows_NT' ">
     <NativeLib Include="../../src/Mime/runtimes/win7-x64/native/*" />
   </ItemGroup>
+  <ItemGroup Condition=" ('$(Platform)' == 'x64' OR '$(Platform)' == 'AnyCPU') AND '$(OS)' == 'Unix' ">
+    <NativeLib Include="../../src/Mime/runtimes/osx.10.12-x64/native/*" />
+  </ItemGroup>
 
   <Target Name="CopyNativeLib" AfterTargets="Build">
     <Copy SourceFiles="@(NativeLib)" DestinationFolder="$(OutputPath)" />
