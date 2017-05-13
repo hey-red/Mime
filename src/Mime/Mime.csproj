@@ -3,6 +3,7 @@
   <PropertyGroup>
     <Description>Simple MIME type guesser for .NET and .NET Core.</Description>
     <AssemblyTitle>Mime</AssemblyTitle>
+    <Version>2.2.0</Version>
     <VersionPrefix>2.0.0</VersionPrefix>
     <Authors>red</Authors>
     <TargetFrameworks>net452;netstandard1.3</TargetFrameworks>
@@ -13,7 +14,7 @@
     <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
     <PackageId>Mime</PackageId>
     <PackageTags>mime;mimetype;libmagic</PackageTags>
-    <PackageReleaseNotes>Move binaries to project source</PackageReleaseNotes>
+    <PackageReleaseNotes>Added MacOS support</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/hey-red/Mime</PackageProjectUrl>
     <PackageLicenseUrl>https://raw.githubusercontent.com/hey-red/Mime/master/LICENSE</PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
@@ -21,7 +22,6 @@
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>2.1.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard1.3|x64'" />
