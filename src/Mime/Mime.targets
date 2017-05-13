@@ -7,4 +7,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup Condition=" '$(Platform)' == 'x64' AND '$(OS)' == 'Unix' ">
+    <NativeLibs Include="$(MSBuildThisFileDirectory)\..\runtimes\osx.10.12-x64\native\*" />
+    <None Include="@(NativeLibs)">
+      <Link>%(RecursiveDir)%(FileName)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
