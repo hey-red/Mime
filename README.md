@@ -29,4 +29,4 @@ MimeGuesser.GuessFileType("path/to/file") //=> FileType
 Also available extension methods for FileInfo.
 
 ## License
-[MIT](\LICENSE)
+[MIT](LICENSE)
