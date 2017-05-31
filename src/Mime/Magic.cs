@@ -29,6 +29,10 @@ namespace HeyRed.Mime
             {
                 throw new MagicException("Cannot create magic cookie.");
             }
+            if (dbPath == null)
+            {
+                dbPath = MagicUtils.GetDefaultMagicPath();
+            }
             if (MagicNative.magic_load(_magic, dbPath) != 0)
             {
                 throw new MagicException(LastError);
