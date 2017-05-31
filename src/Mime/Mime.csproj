@@ -45,7 +45,7 @@
   <ItemGroup>
     <None Include="runtimes\win-x64\native\*" PackagePath="runtimes/win-x64/native/" Pack="true" />
     <None Include="runtimes\linux-x64\native\*" PackagePath="runtimes/linux-x64/native/" Pack="true" />
-    <None Include="runtimes\osx.10.12-x64\native\*" PackagePath="runtimes/osx.10.12-x64/native/" Pack="true" />
+    <None Include="runtimes\osx-x64\native\*" PackagePath="runtimes/osx-x64/native/" Pack="true" />
     <None Include="Mime.targets" PackagePath="build" Pack="true" />
   </ItemGroup>
 
