@@ -17,8 +17,7 @@ namespace HeyRed.Mime
                 var pgkVer = Assembly
                     .Load(new AssemblyName("Mime"))
                     .GetCustomAttribute<AssemblyInformationalVersionAttribute>()
-                    .InformationalVersion; // FIXME: Just parse "Location"?
-                // TODO: Use platform ENV
+                    .InformationalVersion;
                 return Path.Combine(home, ".nuget/packages/mime", pgkVer, "runtimes/linux-x64/native/magic.mgc");
             }
             return null;
