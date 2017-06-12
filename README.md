@@ -28,5 +28,8 @@ MimeGuesser.GuessFileType("path/to/file") //=> FileType
 ```
 Also available extension methods for FileInfo.
 
+This library uses libmagic as backend and we can get more info about the file. See [this](https://github.com/hey-red/Mime/issues/16#issuecomment-306721390) issue.
+
+
 ## License
 [MIT](LICENSE)
