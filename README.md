@@ -51,8 +51,8 @@ Also available extension methods for FileInfo.
 This library uses libmagic as backend and we can get more info about the file. See [this](https://github.com/hey-red/Mime/issues/16#issuecomment-306721390) issue.
 
 # Remarks
-- The Magic class is not thread safe, but if you use different instances on different threads it seems to work fine
-- The MimeGuesser seems to be thread safe, since it generates a new instance of Magic class on each use 
+- The Magic class is not thread safe, but if you use different instances on different threads it seems to work fine.
+- The MimeGuesser seems to be thread safe, since it generates a new instance of Magic class on each use.
 
 ## License
 [MIT](LICENSE)
