@@ -20,13 +20,13 @@ using HeyRed.Mime;
 MimeGuesser.MagicFilePath = "/path/to/magic/file";
 
 // Guess mime type of file(overloaded method takes byte array or stream as arg.)
-MimeGuesser.GuessMimeType("path/to/file") //=> image/jpeg
+MimeGuesser.GuessMimeType("path/to/file"); //=> image/jpeg
 
 // Get extension of file(overloaded method takes byte array or stream as arg.)
-MimeGuesser.GuessExtension("path/to/file") //=> jpeg
+MimeGuesser.GuessExtension("path/to/file"); //=> jpeg
 
 // Get mime type and extension of file(overloaded method takes byte array or stream as arg.)
-MimeGuesser.GuessFileType("path/to/file") //=> FileType
+MimeGuesser.GuessFileType("path/to/file"); //=> FileType
 
 // Want more than just the mime type? use the Magic class:
 string calc = @"C:\Windows\System32\calc.exe";
@@ -44,6 +44,7 @@ Console.WriteLine(result);
 
 // Output: utf-8
 ```
+Also, we can combine flags with "|" operator.
 For all flag options, see [this](src/Mime/MagicOpenFlags.cs)
 
 
