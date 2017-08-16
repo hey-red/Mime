@@ -7,18 +7,21 @@ namespace HeyRed.Mime
 {
     public static class MagicUtils
     {
+        private static bool IsOSX() => RuntimeInformation.IsOSPlatform(OSPlatform.OSX);
         private static bool IsLinux() => RuntimeInformation.IsOSPlatform(OSPlatform.Linux);
 
         public static string GetDefaultMagicPath()
         {
-            if (IsLinux())
+            var home = Environment.GetEnvironmentVariable(IsLinux() ? "HOME" : "USERPROFILE");
+            if (home != null)
             {
-                var home = Environment.GetEnvironmentVariable("HOME");
                 var pgkVer = Assembly
                     .Load(new AssemblyName("Mime"))
                     .GetCustomAttribute<AssemblyInformationalVersionAttribute>()
                     .InformationalVersion;
-                return Path.Combine(home, ".nuget/packages/mime", pgkVer, "runtimes/linux-x64/native/magic.mgc");
+
+                var magicPath = Path.Combine(home, ".nuget/packages/mime", pgkVer, "content/magic.mgc");
+                if (File.Exists(magicPath)) return magicPath;
             }
             return null;
         }

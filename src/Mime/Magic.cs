@@ -10,7 +10,7 @@ namespace HeyRed.Mime
 
         public static int Version
         {
-            get { return MagicNative.magic_version(); }
+            get => MagicNative.magic_version();
         }
 
         private string LastError
@@ -18,6 +18,7 @@ namespace HeyRed.Mime
             get
             {
                 var err = Marshal.PtrToStringAnsi(MagicNative.magic_error(_magic));
+                if (err == null) return err;
                 return char.ToUpper(err[0]) + err.Substring(1);
             }
         }
@@ -27,7 +28,7 @@ namespace HeyRed.Mime
             _magic = MagicNative.magic_open(flags);
             if (_magic == IntPtr.Zero)
             {
-                throw new MagicException("Cannot create magic cookie.");
+                throw new MagicException(LastError, "Cannot create magic cookie.");
             }
             if (dbPath == null)
             {
@@ -35,7 +36,7 @@ namespace HeyRed.Mime
             }
             if (MagicNative.magic_load(_magic, dbPath) != 0)
             {
-                throw new MagicException(LastError);
+                throw new MagicException(LastError, "Cannot load magic database file.");
             }
         }
 

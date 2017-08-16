@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssemblyName>MimeTests</AssemblyName>
     <PackageId>MimeTests</PackageId>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
@@ -9,7 +9,11 @@
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
   </PropertyGroup>
-  
+
+  <ImportGroup>
+    <Import Project="..\..\src\Mime\Platform.targets" />
+  </ImportGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\..\src\Mime\Mime.csproj" />
   </ItemGroup>
@@ -19,26 +23,44 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
     <PackageReference Include="xunit" Version="2.2.0" />
   </ItemGroup>
-
-  <ItemGroup Condition=" ('$(Platform)' == 'x64' OR '$(Platform)' == 'AnyCPU') AND '$(OS)' == 'linux' ">
-    <NativeLib Include="../../src/Mime/runtimes/linux-x64/native/*" />
-  </ItemGroup>
-  <ItemGroup Condition=" ('$(Platform)' == 'x64' OR '$(Platform)' == 'AnyCPU') AND '$(OS)' == 'Windows_NT' ">
+  
+  <!-- Any runtimes on Windows -->
+  <ItemGroup Condition=" '$(IsX64)' == 'true' AND '$(IsWindows)' == 'true' ">
     <NativeLib Include="../../src/Mime/runtimes/win-x64/native/*" />
   </ItemGroup>
-  <ItemGroup Condition=" ('$(Platform)' == 'x64' OR '$(Platform)' == 'AnyCPU') AND '$(OS)' == 'Unix' ">
+
+  <!-- Any runtimes on Linux -->
+  <ItemGroup Condition=" '$(IsX64)' == 'true' AND '$(IsLinux)' == 'true' ">
+    <NativeLib Include="../../src/Mime/runtimes/linux-x64/native/*" />
+  </ItemGroup>
+  
+  <!-- Any runtimes on OSX -->
+  <ItemGroup Condition=" '$(IsX64)' == 'true' AND '$(IsOSX)' == 'true' ">
     <NativeLib Include="../../src/Mime/runtimes/osx-x64/native/*" />
   </ItemGroup>
 
   <Target Name="CopyNativeLib" AfterTargets="Build">
     <Copy SourceFiles="@(NativeLib)" DestinationFolder="$(OutputPath)" />
+    <Copy SourceFiles="../../src/Mime/content/magic.mgc" DestinationFolder="$(OutputPath)" />
   </Target>
 
   <ItemGroup>
-    <None Include="TestData\**\*">
+    <None Include="TestData/**/*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+
+  <Target Name="PrintRuntimeInfo" BeforeTargets="Build">
+    <Message Text="MSBuildRuntimeType: $(MSBuildRuntimeType)" Importance="high" />
+    <Message Text="Platform: $(Platform)" Importance="high" />
+    <Message Text="OS: $(OS)" Importance="high" />
+  </Target>
+
+  <Target Name="PrintRID" BeforeTargets="Build">
+    <Message Text="IsWindows $(IsWindows)" Importance="high" />
+    <Message Text="IsOSX $(IsOSX)" Importance="high" />
+    <Message Text="IsLinux $(IsLinux)" Importance="high" />
+  </Target>
 
   <ItemGroup>
     <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
