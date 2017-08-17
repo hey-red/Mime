@@ -50,7 +50,7 @@ For all flag options, see [this](src/Mime/MagicOpenFlags.cs)
 ## Remarks
 - The Magic class is not thread safe, but if you use different instances on different threads it seems to work fine.
 - The MimeGuesser seems to be thread safe, since it generates a new instance of Magic class on each use.
-- If we deploy your application as Self-contained(SCD), then make sure to copy magic.mgc and set magic path manually.
+- If you publish application as Self-contained(SCD) with target RID linux/OSX(?), then make sure to set magic path manually.
 
 ## License
 [MIT](LICENSE)
