@@ -12,7 +12,7 @@ Supports only x64 OS(Linux, MacOS and Windows).
 If you run into issues, make sure you set your target platform to x64:
 ![x64.png](/x64.png)
 
-## Usage
+## Basic usage
 ```C#
 using HeyRed.Mime;
 
@@ -27,30 +27,28 @@ MimeGuesser.GuessExtension("path/to/file"); //=> jpeg
 
 // Get mime type and extension of file(overloaded method takes byte array or stream as arg.)
 MimeGuesser.GuessFileType("path/to/file"); //=> FileType
+```
 
-// Want more than just the mime type? use the Magic class:
+## Advanced
+Want more than just the mime type? Use the Magic class:
+```C#
+//
 string calc = @"C:\Windows\System32\calc.exe";
 var magic = new Magic(MagicOpenFlags.MAGIC_NONE);
-string result = magic.Read(calc);
-Console.WriteLine(result);
-
-// Output: PE32+ executable (GUI) x86-64, for MS Windows
+magic.Read(calc); //=> PE32+ executable (GUI) x86-64, for MS Windows
 
 // Check encoding:
 string textFile = @"F:\Temp\file.txt";
 var magic = new Magic(MagicOpenFlags.MAGIC_MIME_ENCODING);
-string result = magic.Read(textFile);
-Console.WriteLine(result);
-
-// Output: utf-8
+magic.Read(textFile); //=> Output: utf-8
 ```
 Also, we can combine flags with "|" operator.
 For all flag options, see [this](src/Mime/MagicOpenFlags.cs)
 
-
-# Remarks
+## Remarks
 - The Magic class is not thread safe, but if you use different instances on different threads it seems to work fine.
 - The MimeGuesser seems to be thread safe, since it generates a new instance of Magic class on each use.
+- If we deploy your application as Self-contained(SCD), then make sure to copy magic.mgc and set magic path manually.
 
 ## License
 [MIT](LICENSE)
