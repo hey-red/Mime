@@ -1,5 +1,3 @@
-
-
 # Mime
 Simple MIME type guesser for .NET and .NET Core.
 
