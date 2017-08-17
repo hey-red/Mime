@@ -30,10 +30,15 @@
   </ItemGroup>
   
   <ItemGroup>
+    <!-- This can be optimized -->
     <None Include="runtimes\win-x64\native\*" PackagePath="runtimes/win-x64/native/" Pack="true" />
     <None Include="runtimes\linux-x64\native\*" PackagePath="runtimes/linux-x64/native/" Pack="true" />
     <None Include="runtimes\osx-x64\native\*" PackagePath="runtimes/osx-x64/native/" Pack="true" />
-    <None Include="content\*" PackagePath="" Pack="true" />
+    
+    <None Include="content\*" PackagePath="runtimes/win-x64/native/" Pack="true" />
+    <None Include="content\*" PackagePath="runtimes/linux-x64/native/" Pack="true" />
+    <None Include="content\*" PackagePath="runtimes/osx-x64/native/" Pack="true" />
+    
     <None Include="Mime.targets" PackagePath="build" Pack="true" />
     <None Include="Platform.props" PackagePath="build" Pack="true" />
   </ItemGroup>

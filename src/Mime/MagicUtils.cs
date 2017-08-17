@@ -12,7 +12,7 @@ namespace HeyRed.Mime
 
         public static string GetDefaultMagicPath()
         {
-            var home = Environment.GetEnvironmentVariable(IsLinux() || IsOSX() ? "HOME" : "USERPROFILE");
+            string home = Environment.GetEnvironmentVariable(IsLinux() || IsOSX() ? "HOME" : "USERPROFILE");
             if (home != null)
             {
                 var pgkVer = Assembly
@@ -20,7 +20,11 @@ namespace HeyRed.Mime
                     .GetCustomAttribute<AssemblyInformationalVersionAttribute>()
                     .InformationalVersion;
 
-                var magicPath = Path.Combine(home, ".nuget/packages/mime", pgkVer, "magic.mgc");
+                var runtime = "win-x64";
+                if (IsLinux()) runtime = "linux-x64";
+                else if (IsOSX()) runtime = "osx-x64";
+
+                var magicPath = Path.Combine(home, ".nuget/packages/mime", pgkVer, "runtimes", runtime, "native/magic.mgc");
                 if (File.Exists(magicPath)) return magicPath;
             }
             return null;
