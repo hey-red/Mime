@@ -12,10 +12,7 @@ namespace HeyRed.Mime
 
         public static string GetDefaultMagicPath()
         {
-            // Prevent when non Core
-            if (!RuntimeInformation.FrameworkDescription.Contains("Core")) return null;
-
-            var home = Environment.GetEnvironmentVariable(IsLinux() ? "HOME" : "USERPROFILE");
+            var home = Environment.GetEnvironmentVariable(IsLinux() || IsOSX() ? "HOME" : "USERPROFILE");
             if (home != null)
             {
                 var pgkVer = Assembly

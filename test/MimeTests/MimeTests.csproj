@@ -50,12 +50,6 @@
     </None>
   </ItemGroup>
 
-  <Target Name="PrintRuntimeInfo" BeforeTargets="Build">
-    <Message Text="MSBuildRuntimeType: $(MSBuildRuntimeType)" Importance="high" />
-    <Message Text="Platform: $(Platform)" Importance="high" />
-    <Message Text="OS: $(OS)" Importance="high" />
-  </Target>
-
   <Target Name="PrintRID" BeforeTargets="Build">
     <Message Text="IsWindows $(IsWindows)" Importance="high" />
     <Message Text="IsOSX $(IsOSX)" Importance="high" />

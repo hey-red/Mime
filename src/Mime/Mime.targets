@@ -14,15 +14,4 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  <!-- For Mono on OSX -->
-  <ItemGroup Condition=" '$(IsX64)' == 'true' AND '$(OS)' == 'Unix' ">
-    <NativeLibs Include="$(MSBuildThisFileDirectory)\..\runtimes\osx-x64\native\*" />
-    <None Include="@(NativeLibs)">
-      <Copy>%(RecursiveDir)%(FileName)%(Extension)</Copy>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="$(MSBuildThisFileDirectory)\..\magic.mgc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
 </Project>
