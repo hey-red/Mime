@@ -19,16 +19,26 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MimeTests", "test\MimeTests
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08FAB9A9-6B82-4CE8-9641-423190F6206B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08FAB9A9-6B82-4CE8-9641-423190F6206B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08FAB9A9-6B82-4CE8-9641-423190F6206B}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{08FAB9A9-6B82-4CE8-9641-423190F6206B}.Debug|x64.Build.0 = Debug|Any CPU
+		{08FAB9A9-6B82-4CE8-9641-423190F6206B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08FAB9A9-6B82-4CE8-9641-423190F6206B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{08FAB9A9-6B82-4CE8-9641-423190F6206B}.Release|x64.ActiveCfg = Release|Any CPU
 		{08FAB9A9-6B82-4CE8-9641-423190F6206B}.Release|x64.Build.0 = Release|Any CPU
+		{EFF34B03-3E19-442E-947B-826976EF3552}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFF34B03-3E19-442E-947B-826976EF3552}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFF34B03-3E19-442E-947B-826976EF3552}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{EFF34B03-3E19-442E-947B-826976EF3552}.Debug|x64.Build.0 = Debug|Any CPU
+		{EFF34B03-3E19-442E-947B-826976EF3552}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFF34B03-3E19-442E-947B-826976EF3552}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EFF34B03-3E19-442E-947B-826976EF3552}.Release|x64.ActiveCfg = Release|Any CPU
 		{EFF34B03-3E19-442E-947B-826976EF3552}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
