@@ -12,6 +12,9 @@ namespace HeyRed.Mime
 
         public static string GetDefaultMagicPath()
         {
+            // Prevent when non Core
+            if (!RuntimeInformation.FrameworkDescription.Contains("Core")) return null;
+
             var home = Environment.GetEnvironmentVariable(IsLinux() ? "HOME" : "USERPROFILE");
             if (home != null)
             {
@@ -20,7 +23,7 @@ namespace HeyRed.Mime
                     .GetCustomAttribute<AssemblyInformationalVersionAttribute>()
                     .InformationalVersion;
 
-                var magicPath = Path.Combine(home, ".nuget/packages/mime", pgkVer, "content/magic.mgc");
+                var magicPath = Path.Combine(home, ".nuget/packages/mime", pgkVer, "magic.mgc");
                 if (File.Exists(magicPath)) return magicPath;
             }
             return null;

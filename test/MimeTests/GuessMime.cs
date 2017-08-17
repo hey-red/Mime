@@ -7,11 +7,14 @@ namespace MimeTests
 {
     public class GuessMime
     {
+        public GuessMime() =>
+            MimeGuesser.MagicFilePath = ResourceUtils.GetMagicFilePath;
+
         [Fact]
         public void GuessMimeFromFilePath()
         {
             string expected = "image/jpeg";
-            string actual = MimeGuesser.GuessMimeType(ResourceUtils.TestDataPath);
+            string actual = MimeGuesser.GuessMimeType(ResourceUtils.GetFileFixture);
 
             Assert.Equal(expected, actual);
         }
@@ -19,7 +22,7 @@ namespace MimeTests
         [Fact]
         public void GuessMimeFromBuffer()
         {
-            byte[] buffer = File.ReadAllBytes(ResourceUtils.TestDataPath);
+            byte[] buffer = File.ReadAllBytes(ResourceUtils.GetFileFixture);
             string expected = "image/jpeg";
             string actual = MimeGuesser.GuessMimeType(buffer);
 
@@ -29,7 +32,7 @@ namespace MimeTests
         [Fact]
         public void GuessMimeFromStream()
         {
-            using (var stream = File.OpenRead(ResourceUtils.TestDataPath))
+            using (var stream = File.OpenRead(ResourceUtils.GetFileFixture))
             {
                 string expected = "image/jpeg";
                 string actual = MimeGuesser.GuessMimeType(stream);
@@ -42,7 +45,7 @@ namespace MimeTests
         public void GuessMimeFromFileInfo()
         {
             string expected = "image/jpeg";
-            var fi = new FileInfo(ResourceUtils.TestDataPath);
+            var fi = new FileInfo(ResourceUtils.GetFileFixture);
             string actual = fi.GuessMimeType();
 
             Assert.Equal(expected, actual);
