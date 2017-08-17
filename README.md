@@ -32,7 +32,6 @@ MimeGuesser.GuessFileType("path/to/file"); //=> FileType
 ## Advanced
 Want more than just the mime type? Use the Magic class:
 ```C#
-//
 string calc = @"C:\Windows\System32\calc.exe";
 var magic = new Magic(MagicOpenFlags.MAGIC_NONE);
 magic.Read(calc); //=> PE32+ executable (GUI) x86-64, for MS Windows
