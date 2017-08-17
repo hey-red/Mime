@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Description>Simple MIME type guesser for .NET and .NET Core.</Description>
     <AssemblyTitle>Mime</AssemblyTitle>
-    <Version>2.3.3</Version>
+    <Version>2.3.4</Version>
     <Authors>red</Authors>
     <TargetFrameworks>netstandard1.3;net45</TargetFrameworks>
     <AssemblyName>Mime</AssemblyName>
@@ -11,7 +11,7 @@
     <SignAssembly>true</SignAssembly>
     <PackageId>Mime</PackageId>
     <PackageTags>mime;mimetype;libmagic</PackageTags>
-    <PackageReleaseNotes>Improved magic path detection on Linux, OSX and Windows. Improved .NET 4.5 support.</PackageReleaseNotes>
+    <PackageReleaseNotes>Fix magic.mgc copying when publish SCD.</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/hey-red/Mime</PackageProjectUrl>
     <PackageLicenseUrl>https://raw.githubusercontent.com/hey-red/Mime/master/LICENSE</PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
