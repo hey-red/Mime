@@ -11,7 +11,7 @@
     <SignAssembly>true</SignAssembly>
     <PackageId>Mime</PackageId>
     <PackageTags>mime;mimetype;libmagic</PackageTags>
-    <PackageReleaseNotes>Fix magic.mgc copying when publish SCD.</PackageReleaseNotes>
+    <PackageReleaseNotes>Fix for .NET4.5</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/hey-red/Mime</PackageProjectUrl>
     <PackageLicenseUrl>https://raw.githubusercontent.com/hey-red/Mime/master/LICENSE</PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
