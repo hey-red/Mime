@@ -10,8 +10,5 @@
       <Copy>%(RecursiveDir)%(FileName)%(Extension)</Copy>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="$(MSBuildThisFileDirectory)\..\magic.mgc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 </Project>
