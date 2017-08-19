@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Description>Simple MIME type guesser for .NET and .NET Core.</Description>
     <AssemblyTitle>Mime</AssemblyTitle>
-    <Version>2.3.4</Version>
+    <Version>2.3.5</Version>
     <Authors>red</Authors>
     <TargetFrameworks>netstandard1.3;net45</TargetFrameworks>
     <AssemblyName>Mime</AssemblyName>
