@@ -50,9 +50,9 @@ namespace HeyRed.Mime
             return str;
         }
 
-        public string Read(byte[] buffer, int size = 512)
+        public string Read(byte[] buffer, int bufferSize)
         {
-            var str = Marshal.PtrToStringAnsi(MagicNative.magic_buffer(_magic, buffer, size));
+            var str = Marshal.PtrToStringAnsi(MagicNative.magic_buffer(_magic, buffer, bufferSize));
             if (str == null)
             {
                 throw new MagicException(LastError);
@@ -60,18 +60,18 @@ namespace HeyRed.Mime
             return str;
         }
 
-        public string Read(Stream stream, int size = 512)
+        public string Read(Stream stream, int bufferSize)
         {
-            byte[] buffer = new byte[size];
+            byte[] buffer = new byte[bufferSize];
             int offset = 0;
-            while (offset < size)
+            while (offset < bufferSize)
             {
-                int read = stream.Read(buffer, offset, size - offset);
+                int read = stream.Read(buffer, offset, bufferSize - offset);
                 if (read == 0) break;
                 offset += read;
             }
             if (stream.CanSeek) stream.Position = 0;
-            return Read(buffer, size);
+            return Read(buffer, bufferSize);
         }
 
         #region IDisposable support
