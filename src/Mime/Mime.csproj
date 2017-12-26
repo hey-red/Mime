@@ -8,7 +8,7 @@
     <TargetFrameworks>netstandard1.3;net45</TargetFrameworks>
     <AssemblyName>Mime</AssemblyName>
     <AssemblyOriginatorKeyFile>../../key.snk</AssemblyOriginatorKeyFile>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly Condition=" '$(Configuration)' != 'Debug' ">true</SignAssembly>
     <PackageId>Mime</PackageId>
     <PackageTags>mime;mimetype;libmagic</PackageTags>
     <PackageReleaseNotes>Fix for .NET4.5</PackageReleaseNotes>
