@@ -11,7 +11,8 @@
     <SignAssembly Condition=" '$(Configuration)' != 'Debug' ">true</SignAssembly>
     <PackageId>Mime</PackageId>
     <PackageTags>mime;mimetype;libmagic</PackageTags>
-    <PackageReleaseNotes>Fix for .NET4.5</PackageReleaseNotes>
+    <PackageReleaseNotes>Removed buffer size from facade.
+Fix text/* detection.</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/hey-red/Mime</PackageProjectUrl>
     <PackageLicenseUrl>https://raw.githubusercontent.com/hey-red/Mime/master/LICENSE</PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
