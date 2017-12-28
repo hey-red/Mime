@@ -21,8 +21,7 @@ namespace HeyRed.Mime
             MagicOpenFlags.MAGIC_MIME_TYPE |
             MagicOpenFlags.MAGIC_NO_CHECK_COMPRESS |
             MagicOpenFlags.MAGIC_NO_CHECK_ELF |
-            MagicOpenFlags.MAGIC_NO_CHECK_APPTYPE |
-            MagicOpenFlags.MAGIC_NO_CHECK_ENCODING;
+            MagicOpenFlags.MAGIC_NO_CHECK_APPTYPE;
 
         #region Guess mime type
         /// <summary>
