@@ -23,7 +23,7 @@ Fix text/* detection.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MimeTypesMap" Version="1.0.2" />
+    <PackageReference Include="MimeTypesMap" Version="1.0.3" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
