@@ -11,8 +11,7 @@
     <SignAssembly Condition=" '$(Configuration)' != 'Debug' ">true</SignAssembly>
     <PackageId>Mime</PackageId>
     <PackageTags>mime;mimetype;libmagic</PackageTags>
-    <PackageReleaseNotes>Removed buffer size from facade.
-Fix text/* detection.</PackageReleaseNotes>
+    <PackageReleaseNotes>Update mimetypes map</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/hey-red/Mime</PackageProjectUrl>
     <PackageLicenseUrl>https://raw.githubusercontent.com/hey-red/Mime/master/LICENSE</PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
