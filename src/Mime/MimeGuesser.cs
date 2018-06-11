@@ -33,7 +33,7 @@ namespace HeyRed.Mime
         {
             if (filePath == null)
             {
-                throw new ArgumentNullException("filePath");
+                throw new ArgumentNullException(nameof(filePath));
             }
 
             using (var magic = new Magic(MagicMimeFlags, MagicFilePath))
@@ -51,7 +51,7 @@ namespace HeyRed.Mime
         {
             if (buffer == null)
             {
-                throw new ArgumentNullException("buffer");
+                throw new ArgumentNullException(nameof(buffer));
             }
 
             using (var magic = new Magic(MagicMimeFlags, MagicFilePath))
@@ -69,7 +69,7 @@ namespace HeyRed.Mime
         {
             if (stream == null)
             {
-                throw new ArgumentNullException("stream");
+                throw new ArgumentNullException(nameof(stream));
             }
 
             using (var magic = new Magic(MagicMimeFlags, MagicFilePath))
@@ -83,10 +83,7 @@ namespace HeyRed.Mime
         /// </summary>
         /// <param name="fi"></param>
         /// <returns>Mime type as string</returns>
-        public static string GuessMimeType(this FileInfo fi)
-        {
-            return GuessMimeType(fi.FullName);
-        }
+        public static string GuessMimeType(this FileInfo fi) => GuessMimeType(fi.FullName);
         #endregion
 
         #region Guess extension
@@ -95,40 +92,28 @@ namespace HeyRed.Mime
         /// </summary>
         /// <param name="filePath"></param>
         /// <returns>Extension as string</returns>
-        public static string GuessExtension(string filePath)
-        {
-            return MimeTypesMap.GetExtension(GuessMimeType(filePath));
-        }
+        public static string GuessExtension(string filePath) => MimeTypesMap.GetExtension(GuessMimeType(filePath));
 
         /// <summary>
         /// Get file extension from bytes buffer
         /// </summary>
         /// <param name="buffer"></param>
         /// <returns>Extension as string</returns>
-        public static string GuessExtension(byte[] buffer)
-        {
-            return MimeTypesMap.GetExtension(GuessMimeType(buffer));
-        }
+        public static string GuessExtension(byte[] buffer) => MimeTypesMap.GetExtension(GuessMimeType(buffer));
 
         /// <summary>
         /// Get file extension from stream
         /// </summary>
         /// <param name="stream"></param>
         /// <returns>Extension as string</returns>
-        public static string GuessExtension(Stream stream)
-        {
-            return MimeTypesMap.GetExtension(GuessMimeType(stream));
-        }
+        public static string GuessExtension(Stream stream) => MimeTypesMap.GetExtension(GuessMimeType(stream));
 
         /// <summary>
         /// <see cref="GuessExtension(string)"/>
         /// </summary>
         /// <param name="fi"></param>
         /// <returns>Extension as string</returns>
-        public static string GuessExtension(this FileInfo fi)
-        {
-            return GuessExtension(fi.FullName);
-        }
+        public static string GuessExtension(this FileInfo fi) => GuessExtension(fi.FullName);
         #endregion
 
         #region Guess file type
@@ -173,10 +158,7 @@ namespace HeyRed.Mime
         /// </summary>
         /// <param name="fi"></param>
         /// <returns>FileType</returns>
-        public static FileType GuessFileType(this FileInfo fi)
-        {
-            return GuessFileType(fi.FullName);
-        }
+        public static FileType GuessFileType(this FileInfo fi) => GuessFileType(fi.FullName);
         #endregion
     }
 }
