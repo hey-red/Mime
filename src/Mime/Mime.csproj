@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Description>Simple MIME type guesser for .NET and .NET Core.</Description>
     <AssemblyTitle>Mime</AssemblyTitle>
-    <Version>3.0.0</Version>
+    <Version>3.0.1</Version>
     <Authors>red</Authors>
     <TargetFrameworks>netstandard1.3;net45</TargetFrameworks>
     <AssemblyName>Mime</AssemblyName>
@@ -11,8 +11,7 @@
     <SignAssembly Condition=" '$(Configuration)' != 'Debug' ">true</SignAssembly>
     <PackageId>Mime</PackageId>
     <PackageTags>mime;mimetype;libmagic</PackageTags>
-    <PackageReleaseNotes>Removed buffer size from facade.
-Fix text/* detection.</PackageReleaseNotes>
+    <PackageReleaseNotes>Update mimetypes map</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/hey-red/Mime</PackageProjectUrl>
     <PackageLicenseUrl>https://raw.githubusercontent.com/hey-red/Mime/master/LICENSE</PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
@@ -23,7 +22,7 @@ Fix text/* detection.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MimeTypesMap" Version="1.0.2" />
+    <PackageReference Include="MimeTypesMap" Version="1.0.3" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">

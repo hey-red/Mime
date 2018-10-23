@@ -1,6 +1,5 @@
 ﻿using HeyRed.Mime;
 using System.IO;
-using System.Net.Http;
 using Xunit;
 
 namespace MimeTests
@@ -49,21 +48,6 @@ namespace MimeTests
             string actual = fi.GuessMimeType();
 
             Assert.Equal(expected, actual);
-        }
-
-        [Fact]
-        public async void GuessMimeFromHttpStream()
-        {
-            using (var client = new HttpClient())
-            {
-                var uri = "https://www.google.ru/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png";
-                using (var stream = await client.GetStreamAsync(uri))
-                {
-                    string expected = "image/png";
-                    string actual = MimeGuesser.GuessMimeType(stream);
-                    Assert.Equal(expected, actual);
-                }
-            }
         }
     }
 }

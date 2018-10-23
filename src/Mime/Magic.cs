@@ -8,10 +8,7 @@ namespace HeyRed.Mime
     {
         private IntPtr _magic;
 
-        public static int Version
-        {
-            get => MagicNative.magic_version();
-        }
+        public static int Version => MagicNative.magic_version();
 
         private string LastError
         {
@@ -30,10 +27,12 @@ namespace HeyRed.Mime
             {
                 throw new MagicException(LastError, "Cannot create magic cookie.");
             }
+
             if (dbPath == null)
             {
                 dbPath = MagicUtils.GetDefaultMagicPath();
             }
+
             if (MagicNative.magic_load(_magic, dbPath) != 0)
             {
                 throw new MagicException(LastError, "Cannot load magic database file.");
