@@ -7,7 +7,7 @@
     <Authors>red</Authors>
     <TargetFrameworks>netstandard1.3;net45</TargetFrameworks>
     <AssemblyName>Mime</AssemblyName>
-    <AssemblyOriginatorKeyFile>../../key.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>../../../key.snk</AssemblyOriginatorKeyFile>
     <SignAssembly Condition=" '$(Configuration)' != 'Debug' ">true</SignAssembly>
     <PackageId>Mime</PackageId>
     <PackageTags>mime;mimetype;libmagic</PackageTags>
