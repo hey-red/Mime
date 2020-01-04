@@ -6,7 +6,7 @@ namespace HeyRed.Mime
 {
     public class Magic : IDisposable
     {
-        private IntPtr _magic;
+        private readonly IntPtr _magic;
 
         public static int Version => MagicNative.magic_version();
 
