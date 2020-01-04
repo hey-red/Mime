@@ -81,11 +81,7 @@ namespace HeyRed.Mime
 
         public void Dispose()
         {
-            if (_magic != IntPtr.Zero)
-            {
-                MagicNative.magic_close(_magic);
-                _magic = IntPtr.Zero;
-            }
+            MagicNative.magic_close(_magic);
             GC.SuppressFinalize(this);
         }
         #endregion
