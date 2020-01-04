@@ -22,7 +22,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MimeTypesMap" Version="1.0.3" />
+    <PackageReference Include="MimeTypesMap" Version="1.0.8" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
