@@ -41,16 +41,21 @@ namespace HeyRed.Mime
 
         public string Read(string filePath)
         {
+            ThrowIfDisposed();
+
             var str = Marshal.PtrToStringAnsi(MagicNative.magic_file(_magic, filePath));
             if (str == null)
             {
                 throw new MagicException(LastError);
             }
+
             return str;
         }
 
         public string Read(byte[] buffer, int bufferSize)
         {
+            ThrowIfDisposed();
+
             var str = Marshal.PtrToStringAnsi(MagicNative.magic_buffer(_magic, buffer, bufferSize));
             if (str == null)
             {
@@ -61,6 +66,8 @@ namespace HeyRed.Mime
 
         public string Read(Stream stream, int bufferSize)
         {
+            ThrowIfDisposed();
+
             byte[] buffer = new byte[bufferSize];
             int offset = 0;
             while (offset < bufferSize)
@@ -69,19 +76,35 @@ namespace HeyRed.Mime
                 if (read == 0) break;
                 offset += read;
             }
+
             if (stream.CanSeek) stream.Position = 0;
+
             return Read(buffer, bufferSize);
         }
 
         #region IDisposable support
-        ~Magic()
+        private bool _disposed = false;
+
+        private void ThrowIfDisposed()
         {
-            Dispose();
+            if (_disposed)
+            {
+                throw new ObjectDisposedException(GetType().Name);
+            }
         }
+
+        private void DoDispose() => MagicNative.magic_close(_magic);
+
+        ~Magic() => DoDispose();
 
         public void Dispose()
         {
-            MagicNative.magic_close(_magic);
+            if (_disposed) return;
+
+            DoDispose();
+
+            _disposed = true;
+
             GC.SuppressFinalize(this);
         }
         #endregion
