@@ -82,6 +82,17 @@ namespace HeyRed.Mime
             return Read(buffer, bufferSize);
         }
 
+        public MagicOpenFlags GetFlags() => MagicNative.magic_getflags(_magic);
+
+        public void SetFlags(MagicOpenFlags flags) 
+        {
+            int result = MagicNative.magic_setflags(_magic, flags);
+            if (result == -1)
+            {
+                throw new MagicException("Cannot set magic flags. Utime/Utimes not supported.");
+            }
+        }
+
         #region IDisposable support
         private bool _disposed = false;
 

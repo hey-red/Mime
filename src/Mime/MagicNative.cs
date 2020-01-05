@@ -26,6 +26,12 @@ namespace HeyRed.Mime
         public static extern IntPtr magic_error(IntPtr magic_cookie);
 
         [DllImport(MAGIC_LIB_PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern MagicOpenFlags magic_getflags(IntPtr magic_cookie);
+
+        [DllImport(MAGIC_LIB_PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int magic_setflags(IntPtr magic_cookie, MagicOpenFlags flags);
+
+        [DllImport(MAGIC_LIB_PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int magic_version();
     }
 }
