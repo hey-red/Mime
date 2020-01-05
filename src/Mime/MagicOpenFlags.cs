@@ -139,6 +139,11 @@ namespace HeyRed.Mime
         /// <summary>
         /// Don't check text encodings.
         /// </summary>
-        MAGIC_NO_CHECK_ENCODING = 0x200000
+        MAGIC_NO_CHECK_ENCODING = 0x200000,
+
+        /// <summary>
+        ///  Don't check for JSON files
+        /// </summary>
+        MAGIC_NO_CHECK_JSON = 0x400000,
     }
 }
