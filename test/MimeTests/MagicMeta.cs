@@ -36,5 +36,27 @@ namespace MimeTests
 
             Assert.True(magic.IsValidDatabase());
         }
+
+        [Fact]
+        public void GetParams()
+        {
+            using var magic = new Magic(MagicOpenFlags.MAGIC_NONE);
+            int value = magic.GetParam(MagicParams.MAGIC_PARAM_NAME_MAX);
+
+            Assert.Equal(30, value);
+        }
+
+        [Fact]
+        public void SetParams()
+        {
+            int expected = 20;
+
+            using var magic = new Magic(MagicOpenFlags.MAGIC_NONE);
+
+            magic.SetParam(MagicParams.MAGIC_PARAM_NAME_MAX, expected);
+            int value = magic.GetParam(MagicParams.MAGIC_PARAM_NAME_MAX);
+
+            Assert.Equal(expected, value);
+        }
     }
 }

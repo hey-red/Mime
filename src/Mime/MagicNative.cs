@@ -38,6 +38,12 @@ namespace HeyRed.Mime
         public static extern int magic_compile(IntPtr magic_cookie, string dbPath);
 
         [DllImport(MAGIC_LIB_PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int magic_getparam(IntPtr magic_cookie, MagicParams param, out int value);
+
+        [DllImport(MAGIC_LIB_PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int magic_setparam(IntPtr magic_cookie, MagicParams param, ref int value);
+
+        [DllImport(MAGIC_LIB_PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern int magic_version();
     }
 }

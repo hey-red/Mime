@@ -93,6 +93,26 @@ namespace HeyRed.Mime
             }
         }
 
+        public int GetParam(MagicParams param)
+        {
+            int result = MagicNative.magic_getparam(_magic, param, out int value);
+            if (result < 0)
+            {
+                throw new MagicException(LastError);
+            }
+
+            return value;
+        }
+
+        public void SetParam(MagicParams param, int value)
+        {
+            int result = MagicNative.magic_setparam(_magic, param, ref value);
+            if (result < 0)
+            {
+                throw new MagicException(LastError);
+            }
+        }
+
         public bool IsValidDatabase(string dbPath = null) => MagicNative.magic_check(_magic, dbPath) > -1;
 
         // TODO: Tests
