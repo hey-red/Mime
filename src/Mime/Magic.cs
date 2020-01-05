@@ -127,7 +127,6 @@ namespace HeyRed.Mime
 
         #region IDisposable support
         private bool _disposed = false;
-
         private void ThrowIfDisposed()
         {
             if (_disposed)

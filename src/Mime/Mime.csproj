@@ -6,6 +6,7 @@
     <Version>3.0.2</Version>
     <Authors>red</Authors>
     <TargetFrameworks>netstandard1.5;netstandard2.0;net452;net461;net472</TargetFrameworks>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <AssemblyName>Mime</AssemblyName>
     <AssemblyOriginatorKeyFile>../../../key.snk</AssemblyOriginatorKeyFile>
     <SignAssembly Condition=" '$(Configuration)' != 'Debug' ">true</SignAssembly>
@@ -13,11 +14,7 @@
     <PackageTags>mime;mimetype;libmagic</PackageTags>
     <PackageReleaseNotes>Update magic.mgc</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/hey-red/Mime</PackageProjectUrl>
-    <PackageLicenseUrl>https://raw.githubusercontent.com/hey-red/Mime/master/LICENSE</PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
-    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <RootNamespace>HeyRed.Mime</RootNamespace>
   </PropertyGroup>
@@ -39,6 +36,9 @@
     <None Include="content\*" PackagePath="runtimes/win-x64/native/" Pack="true" />
     <None Include="content\*" PackagePath="runtimes/linux-x64/native/" Pack="true" />
     <None Include="content\*" PackagePath="runtimes/osx-x64/native/" Pack="true" />
+    <Compile Remove="Properties\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <None Remove="Properties\**" />
     
     <None Include="Mime.targets" PackagePath="build" Pack="true" />
     <None Include="Platform.props" PackagePath="build" Pack="true" />
