@@ -87,13 +87,23 @@ namespace HeyRed.Mime
         public void SetFlags(MagicOpenFlags flags) 
         {
             int result = MagicNative.magic_setflags(_magic, flags);
-            if (result == -1)
+            if (result < 0)
             {
                 throw new MagicException("Cannot set magic flags. Utime/Utimes not supported.");
             }
         }
 
         public bool IsValidDatabase(string dbPath = null) => MagicNative.magic_check(_magic, dbPath) > -1;
+
+        // TODO: Tests
+        public void CompileDatabase(string dbPath = null)
+        {
+            int result = MagicNative.magic_compile(_magic, dbPath);
+            if (result < 0)
+            {
+                throw new MagicException("Cannot compile magic database.");
+            }
+        }
 
         #region IDisposable support
         private bool _disposed = false;
