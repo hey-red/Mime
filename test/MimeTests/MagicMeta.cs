@@ -1,4 +1,5 @@
 ﻿using HeyRed.Mime;
+
 using Xunit;
 
 namespace MimeTests

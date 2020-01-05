@@ -5,7 +5,7 @@
     <AssemblyTitle>Mime</AssemblyTitle>
     <Version>3.0.2</Version>
     <Authors>red</Authors>
-    <TargetFrameworks>netstandard1.3;netstandard2.0;net452;net461;net472</TargetFrameworks>
+    <TargetFrameworks>netstandard1.5;netstandard2.0;net452;net461;net472</TargetFrameworks>
     <AssemblyName>Mime</AssemblyName>
     <AssemblyOriginatorKeyFile>../../../key.snk</AssemblyOriginatorKeyFile>
     <SignAssembly Condition=" '$(Configuration)' != 'Debug' ">true</SignAssembly>

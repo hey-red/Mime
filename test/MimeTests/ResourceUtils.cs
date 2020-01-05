@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Reflection;
 
 namespace MimeTests
 {
@@ -8,8 +7,5 @@ namespace MimeTests
     {
         public static string GetFileFixture =>
             Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "TestData", "test.jpeg");
-
-        public static string GetMagicFilePath => 
-            Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "magic.mgc");
     }
 }

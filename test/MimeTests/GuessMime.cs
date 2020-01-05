@@ -1,14 +1,13 @@
-﻿using HeyRed.Mime;
-using System.IO;
+﻿using System.IO;
+
+using HeyRed.Mime;
+
 using Xunit;
 
 namespace MimeTests
 {
     public class GuessMime
     {
-        public GuessMime() =>
-            MimeGuesser.MagicFilePath = ResourceUtils.GetMagicFilePath;
-
         [Fact]
         public void GuessMimeFromFilePath()
         {
