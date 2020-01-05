@@ -93,6 +93,8 @@ namespace HeyRed.Mime
             }
         }
 
+        public bool IsValidDatabase(string dbPath = null) => MagicNative.magic_check(_magic, dbPath) > -1;
+
         #region IDisposable support
         private bool _disposed = false;
 
