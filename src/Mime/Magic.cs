@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 
 namespace HeyRed.Mime
 {
-    public class Magic : IDisposable
+    public sealed class Magic : IDisposable
     {
         private readonly IntPtr _magic;
 
@@ -128,6 +128,7 @@ namespace HeyRed.Mime
 
         #region IDisposable support
         private bool _disposed = false;
+
         private void ThrowIfDisposed()
         {
             if (_disposed)
