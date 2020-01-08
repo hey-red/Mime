@@ -73,18 +73,13 @@ namespace HeyRed.Mime
                 throw new ArgumentException(nameof(stream));
             }
 
-            byte[] buffer = new byte[bufferSize];
-            int offset = 0;
-            while (offset < bufferSize)
-            {
-                int read = stream.Read(buffer, offset, bufferSize - offset);
-                if (read == 0) break;
-                offset += read;
-            }
+            using var bufferMs = new MemoryStream(bufferSize);
+
+            stream.CopyTo(bufferMs);
 
             if (stream.CanSeek) stream.Position = 0;
 
-            return Read(buffer, bufferSize);
+            return Read(bufferMs.ToArray(), bufferSize);
         }
 
         public MagicOpenFlags GetFlags() => MagicNative.magic_getflags(_magic);

@@ -6,6 +6,7 @@
     <Version>3.0.2</Version>
     <Authors>red</Authors>
     <TargetFrameworks>netstandard1.5;netstandard2.0;net452;net461;net472</TargetFrameworks>
+    <LangVersion>8.0</LangVersion>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <AssemblyName>Mime</AssemblyName>
     <AssemblyOriginatorKeyFile>../../../key.snk</AssemblyOriginatorKeyFile>
