@@ -7,7 +7,7 @@ namespace MimeTests
     public class MagicMeta
     {
         [Fact]
-        public void CheckVersion() => Assert.Equal(530, Magic.Version);
+        public void CheckVersion() => Assert.Equal(538, Magic.Version);
 
         [Fact]
         public void GetFlags()
