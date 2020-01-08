@@ -61,6 +61,7 @@ namespace HeyRed.Mime
             {
                 throw new MagicException(LastError);
             }
+
             return str;
         }
 

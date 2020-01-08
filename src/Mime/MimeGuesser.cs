@@ -36,10 +36,8 @@ namespace HeyRed.Mime
                 throw new ArgumentNullException(nameof(filePath));
             }
 
-            using (var magic = new Magic(MagicMimeFlags, MagicFilePath))
-            {
-                return magic.Read(filePath);
-            }
+            using var magic = new Magic(MagicMimeFlags, MagicFilePath);
+            return magic.Read(filePath);
         }
 
         /// <summary>
@@ -54,10 +52,8 @@ namespace HeyRed.Mime
                 throw new ArgumentNullException(nameof(buffer));
             }
 
-            using (var magic = new Magic(MagicMimeFlags, MagicFilePath))
-            {
-                return magic.Read(buffer, buffer.Length);
-            }
+            using var magic = new Magic(MagicMimeFlags, MagicFilePath);
+            return magic.Read(buffer, buffer.Length);
         }
 
         /// <summary>
@@ -72,10 +68,8 @@ namespace HeyRed.Mime
                 throw new ArgumentNullException(nameof(stream));
             }
 
-            using (var magic = new Magic(MagicMimeFlags, MagicFilePath))
-            {
-                return magic.Read(stream, 1024);
-            }
+            using var magic = new Magic(MagicMimeFlags, MagicFilePath);
+            return magic.Read(stream, 1024);
         }
 
         /// <summary>
@@ -126,6 +120,7 @@ namespace HeyRed.Mime
         {
             var mime = GuessMimeType(filePath);
             var ext = MimeTypesMap.GetExtension(mime);
+
             return new FileType(mime, ext);
         }
 
@@ -138,6 +133,7 @@ namespace HeyRed.Mime
         {
             var mime = GuessMimeType(buffer);
             var ext = MimeTypesMap.GetExtension(mime);
+
             return new FileType(mime, ext);
         }
 
@@ -150,6 +146,7 @@ namespace HeyRed.Mime
         {
             var mime = GuessMimeType(stream);
             var ext = MimeTypesMap.GetExtension(mime);
+
             return new FileType(mime, ext);
         }
 
