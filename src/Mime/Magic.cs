@@ -68,6 +68,11 @@ namespace HeyRed.Mime
         {
             ThrowIfDisposed();
 
+            if (stream == null)
+            {
+                throw new ArgumentException(nameof(stream));
+            }
+
             byte[] buffer = new byte[bufferSize];
             int offset = 0;
             while (offset < bufferSize)
