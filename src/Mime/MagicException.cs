@@ -2,7 +2,7 @@
 
 namespace HeyRed.Mime
 {
-    internal class MagicException : Exception
+    public class MagicException : Exception
     {
         public MagicException()
         {

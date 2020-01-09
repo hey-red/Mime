@@ -3,12 +3,12 @@ using System.Reflection;
 
 namespace HeyRed.Mime
 {
-    public static class MagicUtils
+    internal static class MagicUtils
     {
         public static string GetDefaultMagicPath()
         {
             string assemblyLocation = typeof(MagicUtils).GetTypeInfo().Assembly.Location;
-            string magicDbPath = Path.Combine(assemblyLocation, "magic.mgc");
+            string magicDbPath = Path.Combine(assemblyLocation.Replace("Mime.dll", ""), "magic.mgc");
 
             if (File.Exists(magicDbPath))
             {

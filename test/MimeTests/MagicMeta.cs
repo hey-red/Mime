@@ -28,13 +28,12 @@ namespace MimeTests
             Assert.Equal(flags, magic.GetFlags());
         }
 
-        // TODO: Check invalid list?
         [Fact]
         public void ValidateDatabase()
         {
             using var magic = new Magic(MagicOpenFlags.MAGIC_NONE);
 
-            Assert.True(magic.IsValidDatabase());
+            magic.CheckDatabase();
         }
 
         [Fact]

@@ -10,9 +10,9 @@ namespace HeyRed.Mime
 
         public static int Version => MagicNative.magic_version();
 
-        private string LastError
+        private string LastError 
         {
-            get
+            get 
             {
                 var err = Marshal.PtrToStringAnsi(MagicNative.magic_error(_magic));
                 if (err == null) return err;
@@ -85,21 +85,23 @@ namespace HeyRed.Mime
 
         public MagicOpenFlags GetFlags() => MagicNative.magic_getflags(_magic);
 
-        public void SetFlags(MagicOpenFlags flags) 
+        public void SetFlags(MagicOpenFlags flags)
         {
-            int result = MagicNative.magic_setflags(_magic, flags);
-            if (result < 0)
+            ThrowIfDisposed();
+
+            if (MagicNative.magic_setflags(_magic, flags) < 0)
             {
-                throw new MagicException("Cannot set magic flags. Utime/Utimes not supported.");
+                throw new MagicException("Utime/Utimes not supported.");
             }
         }
 
         public int GetParam(MagicParams param)
         {
-            int result = MagicNative.magic_getparam(_magic, param, out int value);
-            if (result < 0)
+            ThrowIfDisposed();
+
+            if (MagicNative.magic_getparam(_magic, param, out int value) < 0)
             {
-                throw new MagicException(LastError);
+                throw new MagicException("Invalid param.");
             }
 
             return value;
@@ -107,22 +109,38 @@ namespace HeyRed.Mime
 
         public void SetParam(MagicParams param, int value)
         {
-            int result = MagicNative.magic_setparam(_magic, param, ref value);
+            ThrowIfDisposed();
+
+            if (MagicNative.magic_setparam(_magic, param, ref value) < 0)
+            {
+                throw new MagicException("Invalid param.");
+            }
+        }
+
+        public void CheckDatabase(string dbPath = null)
+        {
+            ThrowIfDisposed();
+
+            if (dbPath == null)
+            {
+                dbPath = MagicUtils.GetDefaultMagicPath();
+            }
+
+            int result = MagicNative.magic_check(_magic, dbPath);
             if (result < 0)
             {
                 throw new MagicException(LastError);
             }
         }
 
-        public bool IsValidDatabase(string dbPath = null) => MagicNative.magic_check(_magic, dbPath) > -1;
-
         // TODO: Tests
         public void CompileDatabase(string dbPath = null)
         {
-            int result = MagicNative.magic_compile(_magic, dbPath);
-            if (result < 0)
+            ThrowIfDisposed();
+
+            if (MagicNative.magic_compile(_magic, dbPath) < 0)
             {
-                throw new MagicException("Cannot compile magic database.");
+                throw new MagicException(LastError);
             }
         }
 
