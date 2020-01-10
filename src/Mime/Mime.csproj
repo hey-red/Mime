@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>Simple MIME type guesser for .NET and .NET Core.</Description>
+    <Description>.NET wrapper for libmagic.</Description>
     <AssemblyTitle>Mime</AssemblyTitle>
     <Version>3.1.0</Version>
     <Authors>red</Authors>
