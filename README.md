@@ -1,5 +1,5 @@
 # Mime
-Simple MIME type guesser for .NET and .NET Core.
+.NET wrapper for libmagic
 
 [![NuGet](https://img.shields.io/nuget/v/Mime.svg)](https://www.nuget.org/packages/Mime)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/hey-red/Markdown/blob/master/LICENSE)
