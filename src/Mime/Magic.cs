@@ -83,7 +83,12 @@ namespace HeyRed.Mime
             return Read(bufferMs.ToArray(), bufferSize);
         }
 
-        public MagicOpenFlags GetFlags() => MagicNative.magic_getflags(_magic);
+        public MagicOpenFlags GetFlags()
+        {
+            ThrowIfDisposed();
+
+            return MagicNative.magic_getflags(_magic);
+        }
 
         public void SetFlags(MagicOpenFlags flags)
         {
