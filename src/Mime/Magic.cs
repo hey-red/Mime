@@ -106,7 +106,7 @@ namespace HeyRed.Mime
 
             if (MagicNative.magic_getparam(_magic, param, out int value) < 0)
             {
-                throw new MagicException("Invalid param.");
+                throw new MagicException($"Invalid param \"{param}\".");
             }
 
             return value;
@@ -118,7 +118,7 @@ namespace HeyRed.Mime
 
             if (MagicNative.magic_setparam(_magic, param, ref value) < 0)
             {
-                throw new MagicException("Invalid param.");
+                throw new MagicException($"Invalid param \"{param}\".");
             }
         }
 
