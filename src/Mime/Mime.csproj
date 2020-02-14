@@ -17,6 +17,7 @@
     <PackageProjectUrl>https://github.com/hey-red/Mime</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <RootNamespace>HeyRed.Mime</RootNamespace>
   </PropertyGroup>
 
