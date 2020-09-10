@@ -13,7 +13,7 @@
     <SignAssembly Condition=" '$(Configuration)' != 'Debug' ">true</SignAssembly>
     <PackageId>Mime</PackageId>
     <PackageTags>mime;mimetype;libmagic</PackageTags>
-    <PackageReleaseNotes>* Updated libmagic to 5.38.\r\n *Added bunch of libmagic methods(See Magic class for more info).\r\n *Added MAGIC_NO_CHECK_JSON flag.</PackageReleaseNotes>
+    <PackageReleaseNotes>Added Alpine Linux support</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/hey-red/Mime</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
