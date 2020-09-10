@@ -15,5 +15,9 @@ namespace HeyRed.Mime
         public MagicException(string message, string additionalInfo) : base(message ?? additionalInfo)
         {
         }
+
+        public MagicException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
     }
 }
