@@ -6,6 +6,8 @@ namespace HeyRed.Mime
 {
     public sealed class Magic : IDisposable
     {
+        private static readonly object _magicLock = new object();
+
         private readonly IntPtr _magic;
 
         public static int Version => MagicNative.magic_version();
@@ -22,20 +24,23 @@ namespace HeyRed.Mime
 
         public Magic(MagicOpenFlags flags, string dbPath = null)
         {
-            _magic = MagicNative.magic_open(flags);
-            if (_magic == IntPtr.Zero)
+            lock (_magicLock)
             {
-                throw new MagicException(LastError, "Cannot create magic cookie.");
-            }
+                _magic = MagicNative.magic_open(flags);
+                if (_magic == IntPtr.Zero)
+                {
+                    throw new MagicException(LastError, "Cannot create magic cookie.");
+                }
 
-            if (dbPath == null)
-            {
-                dbPath = MagicUtils.GetDefaultMagicPath();
-            }
+                if (dbPath == null)
+                {
+                    dbPath = MagicUtils.GetDefaultMagicPath();
+                }
 
-            if (MagicNative.magic_load(_magic, dbPath) != 0)
-            {
-                throw new MagicException(LastError, "Cannot load magic database file.");
+                if (MagicNative.magic_load(_magic, dbPath) != 0)
+                {
+                    throw new MagicException(LastError, "Cannot load magic database file.");
+                }
             }
         }
 
