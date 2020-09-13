@@ -74,7 +74,7 @@ namespace HeyRed.Mime
         /// <summary>
         /// A shorthand for MAGIC_MIME_TYPE | MAGIC_MIME_ENCODING.
         /// </summary>
-        MAGIC_MIME = (MAGIC_MIME_TYPE|MAGIC_MIME_ENCODING),
+        MAGIC_MIME = (MAGIC_MIME_TYPE | MAGIC_MIME_ENCODING),
 
         /// <summary>
         /// Return the Apple creator and type.
@@ -94,7 +94,7 @@ namespace HeyRed.Mime
         /// <summary>
         /// A shorthand for (MAGIC_EXTENSION|MAGIC_MIME|MAGIC_APPLE)
         /// </summary>
-        MAGIC_NODESC = (MAGIC_EXTENSION|MAGIC_MIME|MAGIC_APPLE),
+        MAGIC_NODESC = (MAGIC_EXTENSION | MAGIC_MIME | MAGIC_APPLE),
 
         /// <summary>
         /// Don't look inside compressed files.
@@ -132,6 +132,11 @@ namespace HeyRed.Mime
         MAGIC_NO_CHECK_CDF = 0x040000,
 
         /// <summary>
+        /// Don't check for CSV files
+        /// </summary>
+        MAGIC_NO_CHECK_CSV = 0x080000,
+
+        /// <summary>
         /// Don't look for known tokens inside ascii files.
         /// </summary>
         MAGIC_NO_CHECK_TOKENS = 0x100000,
@@ -145,5 +150,21 @@ namespace HeyRed.Mime
         ///  Don't check for JSON files
         /// </summary>
         MAGIC_NO_CHECK_JSON = 0x400000,
+
+        /// <summary>
+        /// No built-in tests; only consult the magic file
+        /// </summary>
+        MAGIC_NO_CHECK_BUILTIN =
+            MAGIC_NO_CHECK_COMPRESS |
+            MAGIC_NO_CHECK_TAR |
+            MAGIC_NO_CHECK_SOFT |
+            MAGIC_NO_CHECK_APPTYPE |
+            MAGIC_NO_CHECK_ELF |
+            MAGIC_NO_CHECK_TEXT |
+            MAGIC_NO_CHECK_CSV |
+            MAGIC_NO_CHECK_CDF |
+            MAGIC_NO_CHECK_TOKENS |
+            MAGIC_NO_CHECK_ENCODING |
+            MAGIC_NO_CHECK_JSON,
     }
 }
