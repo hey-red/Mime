@@ -27,8 +27,14 @@
         /// </summary>
         MAGIC_PARAM_ELF_NOTES_MAX,
 
+        /// <summary>
+        /// Regex limit
+        /// </summary>
         MAGIC_PARAM_REGEX_MAX,
 
+        /// <summary>
+        /// The parameter controls how many bytes read from file
+        /// </summary>
         MAGIC_PARAM_BYTES_MAX
     }
 }

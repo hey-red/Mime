@@ -4,12 +4,19 @@ using System.Runtime.InteropServices;
 
 namespace HeyRed.Mime
 {
+    /// <summary>
+    /// Provides access to some libmagic methods
+    /// </summary>
     public sealed class Magic : IDisposable
     {
         private static readonly object _magicLock = new object();
 
         private readonly IntPtr _magic;
 
+        /// <summary>
+        /// Contains the version number of this library which is compiled 
+        /// into the shared library using the constant
+        /// </summary>
         public static int Version => MagicNative.magic_version();
 
         private string LastError 
@@ -22,6 +29,11 @@ namespace HeyRed.Mime
             }
         }
 
+        /// <summary>
+        /// Creates a magic cookie and load database from given path
+        /// </summary>
+        /// <param name="flags"></param>
+        /// <param name="dbPath"></param>
         public Magic(MagicOpenFlags flags, string dbPath = null)
         {
             lock (_magicLock)
@@ -44,6 +56,11 @@ namespace HeyRed.Mime
             }
         }
 
+        /// <summary>
+        /// Reads file from given path
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns>returns a textual description of the contents of file</returns>
         public string Read(string filePath)
         {
             ThrowIfDisposed();
@@ -57,6 +74,12 @@ namespace HeyRed.Mime
             return str;
         }
 
+        /// <summary>
+        /// Reads contents from buffer
+        /// </summary>
+        /// <param name="buffer"></param>
+        /// <param name="bufferSize"></param>
+        /// <returns>returns a textual description of the contents of the buffer</returns>
         public string Read(byte[] buffer, int bufferSize)
         {
             ThrowIfDisposed();
@@ -70,6 +93,15 @@ namespace HeyRed.Mime
             return str;
         }
 
+        /// <summary>
+        /// Reads contents from stream with buffer size limit
+        /// </summary>
+        /// <remarks>
+        /// This method rewinds the stream if it's possible
+        /// </remarks>
+        /// <param name="stream"></param>
+        /// <param name="bufferSize"></param>
+        /// <returns>returns a textual description of the contents of the stream</returns>
         public string Read(Stream stream, int bufferSize)
         {
             ThrowIfDisposed();
@@ -88,6 +120,10 @@ namespace HeyRed.Mime
             return Read(bufferMs.ToArray(), bufferSize);
         }
 
+        /// <summary>
+        /// Returns a value representing current <see cref="MagicOpenFlags"/> set
+        /// </summary>
+        /// <returns></returns>
         public MagicOpenFlags GetFlags()
         {
             ThrowIfDisposed();
@@ -95,6 +131,11 @@ namespace HeyRed.Mime
             return MagicNative.magic_getflags(_magic);
         }
 
+        /// <summary>
+        /// Sets the flags <see cref="MagicOpenFlags"/>
+        /// Note that using both MIME flags together can also return extra information on the charset.
+        /// </summary>
+        /// <param name="flags"></param>
         public void SetFlags(MagicOpenFlags flags)
         {
             ThrowIfDisposed();
@@ -105,6 +146,12 @@ namespace HeyRed.Mime
             }
         }
 
+        /// <summary>
+        /// Gets various limits related to the magic library.
+        /// <see cref="MagicParams"/>
+        /// </summary>
+        /// <param name="param"></param>
+        /// <returns></returns>
         public int GetParam(MagicParams param)
         {
             ThrowIfDisposed();
@@ -117,6 +164,12 @@ namespace HeyRed.Mime
             return value;
         }
 
+        /// <summary>
+        /// Sets various limits related to the magic library.
+        /// <see cref="MagicParams"/>
+        /// </summary>
+        /// <param name="param"></param>
+        /// <param name="value"></param>
         public void SetParam(MagicParams param, int value)
         {
             ThrowIfDisposed();
@@ -127,6 +180,11 @@ namespace HeyRed.Mime
             }
         }
 
+        /// <summary>
+        /// Can be used to check the validity of entries 
+        /// in the colon separated database files
+        /// </summary>
+        /// <param name="dbPath"></param>
         public void CheckDatabase(string dbPath = null)
         {
             ThrowIfDisposed();
@@ -144,6 +202,10 @@ namespace HeyRed.Mime
         }
 
         // TODO: Tests
+        /// <summary>
+        /// Can be used to compile the colon separated list of database files
+        /// </summary>
+        /// <param name="dbPath"></param>
         public void CompileDatabase(string dbPath = null)
         {
             ThrowIfDisposed();
