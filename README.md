@@ -11,9 +11,7 @@ PM> Install-Package Mime
 ```
 
 ## Requirements
-Supports only x64 OS(Linux, MacOS and Windows).
-If you run into issues, make sure you set your target platform to x64:
-![x64.png](/x64.png)
+Supports only **x64** OS(Linux, MacOS and Windows).
 
 ## Basic usage
 ```C#
@@ -36,21 +34,26 @@ MimeGuesser.GuessFileType("path/to/file"); //=> FileType
 Want more than just the mime type? Use the Magic class:
 ```C#
 string calc = @"C:\Windows\System32\calc.exe";
-var magic = new Magic(MagicOpenFlags.MAGIC_NONE);
+using var magic = new Magic(MagicOpenFlags.MAGIC_NONE);
 magic.Read(calc); //=> PE32+ executable (GUI) x86-64, for MS Windows
 
 // Check encoding:
 string textFile = @"F:\Temp\file.txt";
-var magic = new Magic(MagicOpenFlags.MAGIC_MIME_ENCODING);
+using var magic = new Magic(MagicOpenFlags.MAGIC_MIME_ENCODING);
 magic.Read(textFile); //=> Output: utf-8
 ```
 Also, we can combine flags with "|" operator.
-For all flag options, see [this](src/Mime/MagicOpenFlags.cs)
+See all [flags](src/Mime/MagicOpenFlags.cs) for more info.
 
 ## Remarks
 - The Magic class is not thread safe, but if you use different instances on different threads it seems to work fine.
-- The MimeGuesser seems to be thread safe, since it generates a new instance of Magic class on each use.
-- If you publish application as Self-contained(SCD) with target RID linux/OSX(?), then make sure to set magic path manually.
+- The MimeGuesser is thread safe, since it generates a new instance of Magic class on each use.
+
+## Possible problems
+| Exception | Solution |
+| :--- | :--- |
+| DllNotFoundException | Make sure that your `bin` folder contains runtimes directory. If you publishing platform dependent app, then `bin` should be contains `libmagic-1`(.dll, .so or .dylib) and `magic.mgc` files.|
+| BadImageFormatException | Make sure when you target the `AnyCPU` platform the `Prefer 32-bit` option is unchecked. Or try to target `x64` instead. |
 
 ## License
 [MIT](LICENSE)
