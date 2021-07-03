@@ -12,7 +12,7 @@ namespace MimeTests
         public void GuessExtensionFromFilePath()
         {
             var expected = "jpeg";
-            string actual = MimeGuesser.GuessExtension(ResourceUtils.GetFileFixture);
+            string actual = MimeGuesser.GuessExtension(ResourceUtils.GetJpegFileFixture);
 
             Assert.Equal(expected, actual);
         }
@@ -20,7 +20,7 @@ namespace MimeTests
         [Fact]
         public void GuessExtensionFromBuffer()
         {
-            byte[] buffer = File.ReadAllBytes(ResourceUtils.GetFileFixture);
+            byte[] buffer = File.ReadAllBytes(ResourceUtils.GetJpegFileFixture);
             var expected = "jpeg";
             string actual = MimeGuesser.GuessExtension(buffer);
 
@@ -30,7 +30,7 @@ namespace MimeTests
         [Fact]
         public void GuessExtensionFromStream()
         {
-            using var stream = File.OpenRead(ResourceUtils.GetFileFixture);
+            using var stream = File.OpenRead(ResourceUtils.GetJpegFileFixture);
             string expected = "jpeg";
             string actual = MimeGuesser.GuessExtension(stream);
 
@@ -41,7 +41,7 @@ namespace MimeTests
         public void GuessExtensionFromFileInfo()
         {
             var expected = "jpeg";
-            var fi = new FileInfo(ResourceUtils.GetFileFixture);
+            var fi = new FileInfo(ResourceUtils.GetJpegFileFixture);
             string actual = fi.GuessExtension();
 
             Assert.Equal(expected, actual);

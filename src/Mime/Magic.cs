@@ -84,7 +84,9 @@ namespace HeyRed.Mime
         {
             ThrowIfDisposed();
 
-            var str = Marshal.PtrToStringAnsi(MagicNative.magic_buffer(_magic, buffer, bufferSize));
+            var length = buffer.Length < bufferSize ? buffer.Length : bufferSize;
+
+            var str = Marshal.PtrToStringAnsi(MagicNative.magic_buffer(_magic, buffer, length));
             if (str == null)
             {
                 throw new MagicException(LastError);

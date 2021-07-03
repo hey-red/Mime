@@ -12,7 +12,7 @@ namespace MimeTests
         public void GuessFileTypeFromFilePath()
         {
             var expected = new FileType("image/jpeg", "jpeg");
-            FileType actual = MimeGuesser.GuessFileType(ResourceUtils.GetFileFixture);
+            FileType actual = MimeGuesser.GuessFileType(ResourceUtils.GetJpegFileFixture);
 
             Assert.Equal(expected, actual);
         }
@@ -20,7 +20,7 @@ namespace MimeTests
         [Fact]
         public void GuessFileTypeFromBuffer()
         {
-            byte[] buffer = File.ReadAllBytes(ResourceUtils.GetFileFixture);
+            byte[] buffer = File.ReadAllBytes(ResourceUtils.GetJpegFileFixture);
             var expected = new FileType("image/jpeg", "jpeg");
             FileType actual = MimeGuesser.GuessFileType(buffer);
 
@@ -30,7 +30,7 @@ namespace MimeTests
         [Fact]
         public void GuessFileTypeFromStream()
         {
-            using var stream = File.OpenRead(ResourceUtils.GetFileFixture);
+            using var stream = File.OpenRead(ResourceUtils.GetJpegFileFixture);
             var expected = new FileType("image/jpeg", "jpeg");
             FileType actual = MimeGuesser.GuessFileType(stream);
 
@@ -41,7 +41,7 @@ namespace MimeTests
         public void GuessFileTypeFromFileInfo()
         {
             var expected = new FileType("image/jpeg", "jpeg");
-            var fi = new FileInfo(ResourceUtils.GetFileFixture);
+            var fi = new FileInfo(ResourceUtils.GetJpegFileFixture);
             FileType actual = fi.GuessFileType();
 
             Assert.Equal(expected, actual);
