@@ -14,14 +14,14 @@ namespace HeyRed.Mime
         private readonly IntPtr _magic;
 
         /// <summary>
-        /// Contains the version number of this library which is compiled 
+        /// Contains the version number of this library which is compiled
         /// into the shared library using the constant
         /// </summary>
         public static int Version => MagicNative.magic_version();
 
-        private string LastError 
+        private string LastError
         {
-            get 
+            get
             {
                 var err = Marshal.PtrToStringAnsi(MagicNative.magic_error(_magic));
                 if (err == null) return err;
@@ -183,7 +183,7 @@ namespace HeyRed.Mime
         }
 
         /// <summary>
-        /// Can be used to check the validity of entries 
+        /// Can be used to check the validity of entries
         /// in the colon separated database files
         /// </summary>
         /// <param name="dbPath"></param>
@@ -219,6 +219,7 @@ namespace HeyRed.Mime
         }
 
         #region IDisposable support
+
         private bool _disposed = false;
 
         private void ThrowIfDisposed()
@@ -243,6 +244,7 @@ namespace HeyRed.Mime
 
             GC.SuppressFinalize(this);
         }
-        #endregion
+
+        #endregion IDisposable support
     }
 }

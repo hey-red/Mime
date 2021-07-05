@@ -16,14 +16,15 @@ namespace HeyRed.Mime
         /// <summary>
         /// Libmagic open flags for getting file type
         /// </summary>
-        private static readonly MagicOpenFlags MagicMimeFlags = 
-            MagicOpenFlags.MAGIC_ERROR | 
+        private static readonly MagicOpenFlags MagicMimeFlags =
+            MagicOpenFlags.MAGIC_ERROR |
             MagicOpenFlags.MAGIC_MIME_TYPE |
             MagicOpenFlags.MAGIC_NO_CHECK_COMPRESS |
             MagicOpenFlags.MAGIC_NO_CHECK_ELF |
             MagicOpenFlags.MAGIC_NO_CHECK_APPTYPE;
 
         #region Guess mime type
+
         /// <summary>
         /// Get mime type from file
         /// </summary>
@@ -78,9 +79,11 @@ namespace HeyRed.Mime
         /// <param name="fi"></param>
         /// <returns>Mime type as string</returns>
         public static string GuessMimeType(this FileInfo fi) => GuessMimeType(fi.FullName);
-        #endregion
+
+        #endregion Guess mime type
 
         #region Guess extension
+
         /// <summary>
         /// Get file extension from path
         /// </summary>
@@ -108,9 +111,11 @@ namespace HeyRed.Mime
         /// <param name="fi"></param>
         /// <returns>Extension as string</returns>
         public static string GuessExtension(this FileInfo fi) => GuessExtension(fi.FullName);
-        #endregion
+
+        #endregion Guess extension
 
         #region Guess file type
+
         /// <summary>
         /// Get file type from path
         /// </summary>
@@ -156,6 +161,7 @@ namespace HeyRed.Mime
         /// <param name="fi"></param>
         /// <returns>FileType</returns>
         public static FileType GuessFileType(this FileInfo fi) => GuessFileType(fi.FullName);
-        #endregion
+
+        #endregion Guess file type
     }
 }

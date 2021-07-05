@@ -1,6 +1,6 @@
-﻿using System.IO;
+﻿using HeyRed.Mime;
 
-using HeyRed.Mime;
+using System.IO;
 
 using Xunit;
 

@@ -28,7 +28,7 @@ namespace HeyRed.Mime
         MAGIC_COMPRESS = 0x000004,
 
         /// <summary>
-        /// If the file is a block or character special device, then 
+        /// If the file is a block or character special device, then
         /// open the device and try to look in its contents.
         /// </summary>
         MAGIC_DEVICES = 0x000008,
@@ -49,7 +49,7 @@ namespace HeyRed.Mime
         MAGIC_CHECK = 0x000040,
 
         /// <summary>
-        /// On systems that support utime(3) or utimes(2), attempt to 
+        /// On systems that support utime(3) or utimes(2), attempt to
         /// preserve the access time of files analysed.
         /// </summary>
         MAGIC_PRESERVE_ATIME = 0x000080,
@@ -60,8 +60,8 @@ namespace HeyRed.Mime
         MAGIC_RAW = 0x000100,
 
         /// <summary>
-        /// Treat operating system errors while trying to open files 
-        /// and follow symlinks as real errors, instead of printing 
+        /// Treat operating system errors while trying to open files
+        /// and follow symlinks as real errors, instead of printing
         /// them in the magic buffer.
         /// </summary>
         MAGIC_ERROR = 0x000200,
