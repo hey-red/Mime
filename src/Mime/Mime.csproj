@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Description>.NET wrapper for libmagic.</Description>
     <AssemblyTitle>Mime</AssemblyTitle>
-    <Version>3.2.2</Version>
+    <Version>3.2.3</Version>
     <Authors>red</Authors>
     <TargetFrameworks>netstandard1.5;netstandard2.0;net452;net461;net472</TargetFrameworks>
     <LangVersion>8.0</LangVersion>
@@ -13,7 +13,7 @@
     <SignAssembly Condition=" '$(Configuration)' != 'Debug' ">true</SignAssembly>
     <PackageId>Mime</PackageId>
     <PackageTags>mime;mimetype;libmagic</PackageTags>
-    <PackageReleaseNotes>Magic constructor current is thread safe.</PackageReleaseNotes>
+    <PackageReleaseNotes>Fixed bug with files smaller than internal buffer.</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/hey-red/Mime</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
