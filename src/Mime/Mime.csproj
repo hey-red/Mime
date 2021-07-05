@@ -15,6 +15,7 @@
     <PackageTags>mime;mimetype;libmagic</PackageTags>
     <PackageReleaseNotes>Fixed bug with files smaller than internal buffer.</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/hey-red/Mime</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/hey-red/Mime.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
