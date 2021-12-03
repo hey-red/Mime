@@ -102,7 +102,7 @@ namespace HeyRed.Mime
         /// This method rewinds the stream if it's possible
         /// </remarks>
         /// <param name="stream"></param>
-        /// <param name="bufferSize"></param>
+        /// <param name="bufferSize">in bytes</param>
         /// <returns>returns a textual description of the contents of the stream</returns>
         public string Read(Stream stream, int bufferSize)
         {

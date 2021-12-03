@@ -70,7 +70,7 @@ namespace HeyRed.Mime
             }
 
             using var magic = new Magic(MagicMimeFlags, MagicFilePath);
-            return magic.Read(stream, 1024);
+            return magic.Read(stream, 1048576);
         }
 
         /// <summary>
