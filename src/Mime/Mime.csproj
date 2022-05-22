@@ -5,7 +5,7 @@
     <AssemblyTitle>Mime</AssemblyTitle>
     <Version>3.3.0</Version>
     <Authors>red</Authors>
-    <TargetFrameworks>netstandard1.5;netstandard2.0;net452;net461;net472</TargetFrameworks>
+    <TargetFrameworks>netstandard1.5;netstandard2.0;net472;net48</TargetFrameworks>
     <LangVersion>8.0</LangVersion>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <AssemblyName>Mime</AssemblyName>
