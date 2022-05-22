@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Description>.NET wrapper for libmagic.</Description>
     <AssemblyTitle>Mime</AssemblyTitle>
-    <Version>3.3.0</Version>
+    <Version>3.4.0</Version>
     <Authors>red</Authors>
     <TargetFrameworks>netstandard1.5;netstandard2.0;net472;net48</TargetFrameworks>
     <LangVersion>latest</LangVersion>
