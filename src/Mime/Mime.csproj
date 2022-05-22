@@ -25,10 +25,6 @@
   <ItemGroup>
     <PackageReference Include="MimeTypesMap" Version="1.0.8" />
   </ItemGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
-    <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
-  </ItemGroup>
   
   <ItemGroup>
     <!-- This can be optimized -->
@@ -41,6 +37,7 @@
     <None Include="content\*" PackagePath="runtimes/linux-x64/native/" Pack="true" />
     <None Include="content\*" PackagePath="runtimes/osx-x64/native/" Pack="true" />
     <None Include="content\*" PackagePath="runtimes/linux-musl-x64/native/" Pack="true" />
+	  
     <Compile Remove="Properties\**" />
     <EmbeddedResource Remove="Properties\**" />
     <None Remove="Properties\**" />
