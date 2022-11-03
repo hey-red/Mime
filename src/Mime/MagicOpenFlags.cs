@@ -2,6 +2,9 @@
 
 namespace HeyRed.Mime
 {
+    /// <summary>
+    /// Contains libmagic options flags
+    /// </summary>
     [Flags]
     public enum MagicOpenFlags
     {

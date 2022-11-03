@@ -1,5 +1,8 @@
 ﻿namespace HeyRed.Mime
 {
+    /// <summary>
+    /// The various limits.
+    /// </summary>
     public enum MagicParams
     {
         /// <summary>

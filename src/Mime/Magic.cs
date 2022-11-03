@@ -9,7 +9,7 @@ namespace HeyRed.Mime
     /// </summary>
     public sealed class Magic : IDisposable
     {
-        private static readonly object _magicLock = new object();
+        private static readonly object _magicLock = new();
 
         private readonly IntPtr _magic;
 
@@ -232,8 +232,14 @@ namespace HeyRed.Mime
 
         private void DoDispose() => MagicNative.magic_close(_magic);
 
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
         ~Magic() => DoDispose();
 
+        /// <summary>
+        /// Cleanups all unmanaged resources.
+        /// </summary>
         public void Dispose()
         {
             if (_disposed) return;
