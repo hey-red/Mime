@@ -20,7 +20,7 @@ namespace HeyRed.Mime
             throw new PlatformNotSupportedException();
         }
 
-        public static string GetDefaultMagicPath()
+        public static string? GetDefaultMagicPath()
         {
             string assemblyLocation = typeof(MagicUtils).GetTypeInfo().Assembly.Location;
             string currentPath = assemblyLocation.Replace("Mime.dll", "");

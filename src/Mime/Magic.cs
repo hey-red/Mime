@@ -24,8 +24,9 @@ namespace HeyRed.Mime
             get
             {
                 var err = Marshal.PtrToStringAnsi(MagicNative.magic_error(_magic));
-                if (err == null) return err;
-                return char.ToUpper(err[0]) + err.Substring(1);
+                return err != null ?
+                    char.ToUpper(err[0]) + err.Substring(1) :
+                    string.Empty;
             }
         }
 
@@ -34,7 +35,7 @@ namespace HeyRed.Mime
         /// </summary>
         /// <param name="flags"></param>
         /// <param name="dbPath"></param>
-        public Magic(MagicOpenFlags flags, string dbPath = null)
+        public Magic(MagicOpenFlags flags, string? dbPath = null)
         {
             lock (_magicLock)
             {
@@ -44,14 +45,11 @@ namespace HeyRed.Mime
                     throw new MagicException(LastError, "Cannot create magic cookie.");
                 }
 
-                if (dbPath == null)
-                {
-                    dbPath = MagicUtils.GetDefaultMagicPath();
-                }
+                dbPath ??= MagicUtils.GetDefaultMagicPath();
 
                 if (MagicNative.magic_load(_magic, dbPath) != 0)
                 {
-                    throw new MagicException(LastError, "Cannot load magic database file.");
+                    throw new MagicException(LastError, "Unable to load magic database file.");
                 }
             }
         }
@@ -187,7 +185,7 @@ namespace HeyRed.Mime
         /// in the colon separated database files
         /// </summary>
         /// <param name="dbPath"></param>
-        public void CheckDatabase(string dbPath = null)
+        public void CheckDatabase(string? dbPath = null)
         {
             ThrowIfDisposed();
 
@@ -208,11 +206,11 @@ namespace HeyRed.Mime
         /// Can be used to compile the colon separated list of database files
         /// </summary>
         /// <param name="dbPath"></param>
-        public void CompileDatabase(string dbPath = null)
+        public void CompileDatabase(string? dbPath = null)
         {
             ThrowIfDisposed();
 
-            if (MagicNative.magic_compile(_magic, dbPath) < 0)
+            if (MagicNative.magic_compile(_magic, dbPath ?? "") < 0)
             {
                 throw new MagicException(LastError);
             }

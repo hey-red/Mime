@@ -7,19 +7,20 @@
     <Authors>red</Authors>
     <TargetFrameworks>netstandard1.5;netstandard2.0;net472;net48</TargetFrameworks>
     <LangVersion>latest</LangVersion>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <AssemblyName>Mime</AssemblyName>
-    <AssemblyOriginatorKeyFile>../../../key.snk</AssemblyOriginatorKeyFile>
-    <SignAssembly Condition=" '$(Configuration)' != 'Debug' ">true</SignAssembly>
+    <Nullable>enable</Nullable>
     <PackageId>Mime</PackageId>
     <PackageTags>mime;mimetype;libmagic</PackageTags>
     <PackageReleaseNotes>Update libmagic to 5.41.</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/hey-red/Mime</PackageProjectUrl>
     <RepositoryUrl>https://github.com/hey-red/Mime.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>Mime</AssemblyName>
     <RootNamespace>HeyRed.Mime</RootNamespace>
+    <AssemblyOriginatorKeyFile>../../../key.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly Condition=" '$(Configuration)' != 'Debug' ">true</SignAssembly>
   </PropertyGroup>
 
   <ItemGroup>
@@ -37,7 +38,7 @@
     <None Include="content\*" PackagePath="runtimes/linux-x64/native/" Pack="true" />
     <None Include="content\*" PackagePath="runtimes/osx-x64/native/" Pack="true" />
     <None Include="content\*" PackagePath="runtimes/linux-musl-x64/native/" Pack="true" />
-	  
+      
     <Compile Remove="Properties\**" />
     <EmbeddedResource Remove="Properties\**" />
     <None Remove="Properties\**" />

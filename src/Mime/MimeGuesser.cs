@@ -11,7 +11,7 @@ namespace HeyRed.Mime
         /// <summary>
         /// Path to libmagic database file
         /// </summary>
-        public static string MagicFilePath { get; set; } = null;
+        public static string? MagicFilePath { get; set; } = null;
 
         /// <summary>
         /// Libmagic open flags for getting file type
