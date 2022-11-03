@@ -3,7 +3,7 @@
   <ImportGroup>
     <Import Project="Platform.props" />
   </ImportGroup>
-  <!-- For full .NET Framework -->
+  <!-- .NET Framework -->
   <ItemGroup Condition=" '$(IsX64)' == 'true' AND '$(IsWindows)' == 'true' AND '$(TargetFrameworkIdentifier)' == '.NETFramework' ">
     <NativeLibs Include="$(MSBuildThisFileDirectory)\..\runtimes\win-x64\native\*" />
     <None Include="@(NativeLibs)">

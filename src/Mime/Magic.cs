@@ -189,10 +189,7 @@ namespace HeyRed.Mime
         {
             ThrowIfDisposed();
 
-            if (dbPath == null)
-            {
-                dbPath = MagicUtils.GetDefaultMagicPath();
-            }
+            dbPath ??= MagicUtils.GetDefaultMagicPath();
 
             int result = MagicNative.magic_check(_magic, dbPath);
             if (result < 0)
