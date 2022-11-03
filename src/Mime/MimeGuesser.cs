@@ -9,7 +9,7 @@ namespace HeyRed.Mime
     public static class MimeGuesser
     {
         /// <summary>
-        /// Path to libmagic database file
+        /// Path to libmagic database file.
         /// </summary>
         public static string? MagicFilePath { get; set; } = null;
 
@@ -26,7 +26,7 @@ namespace HeyRed.Mime
         #region Guess mime type
 
         /// <summary>
-        /// Get mime type from file
+        /// Get mime type from file.
         /// </summary>
         /// <param name="filePath"></param>
         /// <returns>Mime type as string</returns>
@@ -42,7 +42,7 @@ namespace HeyRed.Mime
         }
 
         /// <summary>
-        /// Get mime type from bytes buffer
+        /// Get mime type from bytes buffer.
         /// </summary>
         /// <param name="buffer"></param>
         /// <returns>Mime type as string</returns>
@@ -58,7 +58,7 @@ namespace HeyRed.Mime
         }
 
         /// <summary>
-        /// Get mime type from stream
+        /// Get mime type from stream.
         /// </summary>
         /// <param name="stream"></param>
         /// <returns>Mime type as string</returns>
@@ -85,21 +85,21 @@ namespace HeyRed.Mime
         #region Guess extension
 
         /// <summary>
-        /// Get file extension from path
+        /// Get file extension from path.
         /// </summary>
         /// <param name="filePath"></param>
         /// <returns>Extension as string</returns>
         public static string GuessExtension(string filePath) => MimeTypesMap.GetExtension(GuessMimeType(filePath));
 
         /// <summary>
-        /// Get file extension from bytes buffer
+        /// Get file extension from bytes buffer.
         /// </summary>
         /// <param name="buffer"></param>
         /// <returns>Extension as string</returns>
         public static string GuessExtension(byte[] buffer) => MimeTypesMap.GetExtension(GuessMimeType(buffer));
 
         /// <summary>
-        /// Get file extension from stream
+        /// Get file extension from stream.
         /// </summary>
         /// <param name="stream"></param>
         /// <returns>Extension as string</returns>
@@ -117,7 +117,7 @@ namespace HeyRed.Mime
         #region Guess file type
 
         /// <summary>
-        /// Get file type from path
+        /// Get file type from path.
         /// </summary>
         /// <param name="filePath"></param>
         /// <returns>FileType</returns>
@@ -130,7 +130,7 @@ namespace HeyRed.Mime
         }
 
         /// <summary>
-        /// Get file type from bytes buffer
+        /// Get file type from bytes buffer.
         /// </summary>
         /// <param name="buffer"></param>
         /// <returns>FileType</returns>
@@ -143,7 +143,7 @@ namespace HeyRed.Mime
         }
 
         /// <summary>
-        /// Get file type from stream
+        /// Get file type from stream.
         /// </summary>
         /// <param name="stream"></param>
         /// <returns>FileType</returns>

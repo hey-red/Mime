@@ -3,7 +3,7 @@
 namespace HeyRed.Mime
 {
     /// <summary>
-    /// Contains libmagic options flags
+    /// Contains libmagic options flags.
     /// </summary>
     [Flags]
     public enum MagicOpenFlags
@@ -95,7 +95,7 @@ namespace HeyRed.Mime
         MAGIC_COMPRESS_TRANSP = 0x200000,
 
         /// <summary>
-        /// A shorthand for (MAGIC_EXTENSION|MAGIC_MIME|MAGIC_APPLE)
+        /// A shorthand for (MAGIC_EXTENSION|MAGIC_MIME|MAGIC_APPLE).
         /// </summary>
         MAGIC_NODESC = (MAGIC_EXTENSION | MAGIC_MIME | MAGIC_APPLE),
 
@@ -135,7 +135,7 @@ namespace HeyRed.Mime
         MAGIC_NO_CHECK_CDF = 0x040000,
 
         /// <summary>
-        /// Don't check for CSV files
+        /// Don't check for CSV files.
         /// </summary>
         MAGIC_NO_CHECK_CSV = 0x080000,
 
@@ -150,12 +150,12 @@ namespace HeyRed.Mime
         MAGIC_NO_CHECK_ENCODING = 0x200000,
 
         /// <summary>
-        ///  Don't check for JSON files
+        /// Don't check for JSON files.
         /// </summary>
         MAGIC_NO_CHECK_JSON = 0x400000,
 
         /// <summary>
-        /// No built-in tests; only consult the magic file
+        /// No built-in tests; only consult the magic file.
         /// </summary>
         MAGIC_NO_CHECK_BUILTIN =
             MAGIC_NO_CHECK_COMPRESS |

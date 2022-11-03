@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 namespace HeyRed.Mime
 {
     /// <summary>
-    /// Provides access to some libmagic methods
+    /// Provides access to some libmagic methods.
     /// </summary>
     public sealed class Magic : IDisposable
     {
@@ -15,7 +15,7 @@ namespace HeyRed.Mime
 
         /// <summary>
         /// Contains the version number of this library which is compiled
-        /// into the shared library using the constant
+        /// into the shared library using the constant.
         /// </summary>
         public static int Version => MagicNative.magic_version();
 
@@ -31,7 +31,7 @@ namespace HeyRed.Mime
         }
 
         /// <summary>
-        /// Creates a magic cookie and load database from given path
+        /// Creates a magic cookie and load database from given path.
         /// </summary>
         /// <param name="flags"></param>
         /// <param name="dbPath"></param>
@@ -55,7 +55,7 @@ namespace HeyRed.Mime
         }
 
         /// <summary>
-        /// Reads file from given path
+        /// Reads file from given path.
         /// </summary>
         /// <param name="filePath"></param>
         /// <returns>returns a textual description of the contents of file</returns>
@@ -73,7 +73,7 @@ namespace HeyRed.Mime
         }
 
         /// <summary>
-        /// Reads contents from buffer
+        /// Reads contents from buffer.
         /// </summary>
         /// <param name="buffer"></param>
         /// <param name="bufferSize"></param>
@@ -94,10 +94,10 @@ namespace HeyRed.Mime
         }
 
         /// <summary>
-        /// Reads contents from stream with buffer size limit
+        /// Reads contents from stream with buffer size limit.
         /// </summary>
         /// <remarks>
-        /// This method rewinds the stream if it's possible
+        /// This method rewinds the stream if it's possible.
         /// </remarks>
         /// <param name="stream"></param>
         /// <param name="bufferSize">in bytes</param>
@@ -121,7 +121,7 @@ namespace HeyRed.Mime
         }
 
         /// <summary>
-        /// Returns a value representing current <see cref="MagicOpenFlags"/> set
+        /// Returns a value representing current <see cref="MagicOpenFlags"/> set.
         /// </summary>
         /// <returns></returns>
         public MagicOpenFlags GetFlags()
@@ -182,7 +182,7 @@ namespace HeyRed.Mime
 
         /// <summary>
         /// Can be used to check the validity of entries
-        /// in the colon separated database files
+        /// in the colon separated database files.
         /// </summary>
         /// <param name="dbPath"></param>
         public void CheckDatabase(string? dbPath = null)
@@ -200,7 +200,7 @@ namespace HeyRed.Mime
 
         // TODO: Tests
         /// <summary>
-        /// Can be used to compile the colon separated list of database files
+        /// Can be used to compile the colon separated list of database files.
         /// </summary>
         /// <param name="dbPath"></param>
         public void CompileDatabase(string? dbPath = null)
