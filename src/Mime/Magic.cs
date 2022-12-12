@@ -111,13 +111,18 @@ public sealed class Magic : IDisposable
             throw new ArgumentException(nameof(stream));
         }
 
-        using var bufferMs = new MemoryStream(bufferSize);
-
-        stream.CopyTo(bufferMs);
+        byte[] buffer = new byte[16 * 1024];
+        using var ms = new MemoryStream(bufferSize);
+        int readed;
+        while ((readed = stream.Read(buffer, 0, buffer.Length)) > 0)
+        {
+            ms.Write(buffer, 0, readed);
+            if (ms.Length >= bufferSize) break;
+        }
 
         if (stream.CanSeek) stream.Position = 0;
 
-        return Read(bufferMs.ToArray(), bufferSize);
+        return Read(ms.ToArray(), (int)ms.Length);
     }
 
     /// <summary>
