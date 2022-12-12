@@ -3,14 +3,14 @@
   <PropertyGroup>
     <Description>.NET wrapper for libmagic.</Description>
     <AssemblyTitle>Mime</AssemblyTitle>
-    <Version>3.4.0</Version>
+    <Version>3.4.1</Version>
     <Authors>red</Authors>
     <TargetFrameworks>netstandard1.5;netstandard2.0;net472;net48</TargetFrameworks>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <PackageId>Mime</PackageId>
     <PackageTags>mime;mimetype;libmagic</PackageTags>
-    <PackageReleaseNotes>Update libmagic to 5.41.</PackageReleaseNotes>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageProjectUrl>https://github.com/hey-red/Mime</PackageProjectUrl>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -25,6 +25,10 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All"/>
     <PackageReference Include="MimeTypesMap" Version="1.0.8" />
+  </ItemGroup>
+	
+  <ItemGroup>
+	<None Include="..\..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
   
   <ItemGroup>
