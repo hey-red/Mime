@@ -57,8 +57,9 @@
   <Target Name="PrintRID" BeforeTargets="Build">
     <Message Text="IsWindows $(IsWindows)" Importance="high" />
     <Message Text="IsOSX $(IsOSX)" Importance="high" />
-    <Message Text="IsArm64 $(IsARM64)" Importance="high" />
     <Message Text="IsLinux $(IsLinux)" Importance="high" />
+    <Message Text="IsArm64 $(IsARM64)" Importance="high" />
+    <Message Text="IsX64 $(IsX64)" Importance="high" />
   </Target>
 
 </Project>
