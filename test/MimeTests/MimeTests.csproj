@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <IsPackable>false</IsPackable>
+    <Configurations>Debug;Release</Configurations>
+    <Platforms>AnyCPU;ARM64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,6 +33,10 @@
   <ItemGroup Condition=" '$(IsX64)' == 'true' AND '$(IsLinux)' == 'true' ">
     <NativeLib Include="../../src/Mime/runtimes/linux-x64/native/*" />
   </ItemGroup>
+
+  <ItemGroup Condition=" '$(IsARM64)' == 'true' AND '$(IsOSX)' == 'true' ">
+    <NativeLib Include="../../src/Mime/runtimes/osx.13-arm64/native/*" />
+  </ItemGroup>
   
   <!-- Any runtimes on OSX -->
   <ItemGroup Condition=" '$(IsX64)' == 'true' AND '$(IsOSX)' == 'true' ">
@@ -52,6 +58,8 @@
     <Message Text="IsWindows $(IsWindows)" Importance="high" />
     <Message Text="IsOSX $(IsOSX)" Importance="high" />
     <Message Text="IsLinux $(IsLinux)" Importance="high" />
+    <Message Text="IsArm64 $(IsARM64)" Importance="high" />
+    <Message Text="IsX64 $(IsX64)" Importance="high" />
   </Target>
 
 </Project>
