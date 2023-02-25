@@ -16,7 +16,12 @@ internal static class MagicUtils
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             return "linux";
         if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-            return "osx";
+        {
+            return RuntimeInformation.ProcessArchitecture == Architecture.Arm64 ?
+                "osx.13" :
+                "osx";
+        }
+
         throw new PlatformNotSupportedException();
     }
 
