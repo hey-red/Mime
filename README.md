@@ -11,14 +11,19 @@ PM> Install-Package Mime
 ```
 
 ## Requirements
-Supports only **x64** OS(Linux, MacOS and Windows).
+Supported runtimes: 
+* linux-musl-x64
+* linux-x64
+* osx-arm64(tested on macOS 13 Ventura)
+* osx-x64
+* win-x64
 
 ## Basic usage
 ```C#
 using HeyRed.Mime;
 
 // (Optionally) You can set path to magic database file manually.
-MimeGuesser.MagicFilePath = "/path/to/magic/file";
+MimeGuesser.MagicFilePath = "/path/to/magic.mgc";
 
 // Guess mime type of file(overloaded method takes byte array or stream as arg.)
 MimeGuesser.GuessMimeType("path/to/file"); //=> image/jpeg
@@ -52,8 +57,9 @@ See all [flags](src/Mime/MagicOpenFlags.cs) for more info.
 ## Possible problems
 | Exception | Solution |
 | :--- | :--- |
-| DllNotFoundException | Make sure that your `bin` folder contains runtimes directory. If you publishing platform dependent app, then `bin` should be contains `libmagic-1`(.dll, .so or .dylib) and `magic.mgc` files.|
-| BadImageFormatException | Make sure when you target the `AnyCPU` platform the `Prefer 32-bit` option is unchecked. Or try to target `x64` instead. |
+| DllNotFoundException | Make sure that your `bin` folder contains runtimes directory. If you publishing platform dependent app, then `bin` should be contains `libmagic-1`(.dll, .so or .dylib) and `magic.mgc` files. |
+| BadImageFormatException | Make sure when you target the `AnyCPU` platform the `Prefer 32-bit` option is unchecked. Or try to target `x64/arm64` instead. |
+| MagicException: Could not find any valid magic files! | Make sure your magic.mgc file contains in one of /runtimes/ subdirs or along with libmagic-1.[dll\|lib\|dylib]. Or set path to custom database as described in [basic usage](https://github.com/hey-red/Mime#basic-usage) |
 
 ## License
 [MIT](LICENSE)
