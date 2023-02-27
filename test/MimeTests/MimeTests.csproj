@@ -24,21 +24,22 @@
     <Import Project="..\..\src\Mime\Platform.props" />
   </ImportGroup>
   
-  <!-- Any runtimes on Windows -->
+  <!-- Windows -->
   <ItemGroup Condition=" '$(IsX64)' == 'true' AND '$(IsWindows)' == 'true' ">
     <NativeLib Include="../../src/Mime/runtimes/win-x64/native/*" />
   </ItemGroup>
 
-  <!-- Any runtimes on Linux -->
+  <!-- Linux -->
   <ItemGroup Condition=" '$(IsX64)' == 'true' AND '$(IsLinux)' == 'true' ">
     <NativeLib Include="../../src/Mime/runtimes/linux-x64/native/*" />
   </ItemGroup>
 
+  <!-- OSX arm64 -->
   <ItemGroup Condition=" '$(IsARM64)' == 'true' AND '$(IsOSX)' == 'true' ">
-    <NativeLib Include="../../src/Mime/runtimes/osx.13-arm64/native/*" />
+    <NativeLib Include="../../src/Mime/runtimes/osx-arm64/native/*" />
   </ItemGroup>
   
-  <!-- Any runtimes on OSX -->
+  <!-- OSX x64 -->
   <ItemGroup Condition=" '$(IsX64)' == 'true' AND '$(IsOSX)' == 'true' ">
     <NativeLib Include="../../src/Mime/runtimes/osx-x64/native/*" />
   </ItemGroup>

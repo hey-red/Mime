@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Description>.NET wrapper for libmagic.</Description>
     <AssemblyTitle>Mime</AssemblyTitle>
-    <Version>3.5.1</Version>
+    <Version>3.5.2</Version>
     <Authors>red</Authors>
     <TargetFrameworks>netstandard1.5;netstandard2.0;net472;net48</TargetFrameworks>
     <LangVersion>latest</LangVersion>
@@ -34,17 +34,16 @@
   </ItemGroup>
   
   <ItemGroup>
-    <!-- This can be optimized -->
     <None Include="runtimes\win-x64\native\*" PackagePath="runtimes/win-x64/native/" Pack="true" />
     <None Include="runtimes\linux-x64\native\*" PackagePath="runtimes/linux-x64/native/" Pack="true" />
     <None Include="runtimes\osx-x64\native\*" PackagePath="runtimes/osx-x64/native/" Pack="true" />
-    <None Include="runtimes\osx.13-arm64\native\*" PackagePath="runtimes/osx.13-arm64/native/" Pack="true" />
+    <None Include="runtimes\osx-arm64\native\*" PackagePath="runtimes/osx-arm64/native/" Pack="true" />
     <None Include="runtimes\linux-musl-x64\native\*" PackagePath="runtimes/linux-musl-x64/native/" Pack="true" />
     
     <None Include="content\*" PackagePath="runtimes/win-x64/native/" Pack="true" />
     <None Include="content\*" PackagePath="runtimes/linux-x64/native/" Pack="true" />
     <None Include="content\*" PackagePath="runtimes/osx-x64/native/" Pack="true" />
-    <None Include="content\*" PackagePath="runtimes/osx.13-arm64/native/" Pack="true" />
+    <None Include="content\*" PackagePath="runtimes/osx-arm64/native/" Pack="true" />
     <None Include="content\*" PackagePath="runtimes/linux-musl-x64/native/" Pack="true" />
       
     <Compile Remove="Properties\**" />

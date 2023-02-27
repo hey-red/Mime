@@ -9,18 +9,14 @@ internal static class MagicUtils
 {
     private const string MAGIC_DB_NAME = "magic.mgc";
 
-    private static string GetCurrentPlatform()
+    private static string GetCurrentRid()
     {
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             return "win";
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             return "linux";
         if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-        {
-            return RuntimeInformation.ProcessArchitecture == Architecture.Arm64 ?
-                "osx.13" :
-                "osx";
-        }
+            return "osx";
 
         throw new PlatformNotSupportedException();
     }
@@ -38,10 +34,9 @@ internal static class MagicUtils
             return magicDbPath;
         }
 
-        var rid = GetCurrentPlatform();
         var architecture = RuntimeInformation.ProcessArchitecture.ToString().ToLower();
 
-        magicDbPath = Path.Combine(currentPath, $"runtimes/{rid}-{architecture}/native/", MAGIC_DB_NAME);
+        magicDbPath = Path.Combine(currentPath, $"runtimes/{GetCurrentRid()}-{architecture}/native/", MAGIC_DB_NAME);
 
         // Find inside runtimes directory
         if (File.Exists(magicDbPath))
