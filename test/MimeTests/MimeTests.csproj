@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <IsPackable>false</IsPackable>
     <Configurations>Debug;Release</Configurations>
-    <Platforms>AnyCPU;ARM64</Platforms>
+    <Platforms>AnyCPU;ARM64;x86</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,6 +27,12 @@
   <!-- Windows -->
   <ItemGroup Condition=" '$(IsX64)' == 'true' AND '$(IsWindows)' == 'true' ">
     <NativeLib Include="../../src/Mime/runtimes/win-x64/native/*" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(IsARM64)' == 'true' AND '$(IsWindows)' == 'true' ">
+    <NativeLib Include="../../src/Mime/runtimes/win-arm64/native/*" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(IsX64)' == 'false' AND '$(IsARM64)' == 'false' AND '$(IsWindows)' == 'true' ">
+    <NativeLib Include="../../src/Mime/runtimes/win-x86/native/*" />
   </ItemGroup>
 
   <!-- Linux -->
