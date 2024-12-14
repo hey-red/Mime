@@ -3,27 +3,32 @@
 /// <summary>
 /// Provides information about MIME type/file extension.
 /// </summary>
-public struct FileType
+/// <remarks>
+/// Creates a new instance of <see cref="FileType"/>
+/// </remarks>
+/// <param name="mime"></param>
+/// <param name="extension"></param>
+public readonly struct FileType(string mime, string extension)
 {
     /// <summary>
     /// The MIME type.
     /// More https://en.wikipedia.org/wiki/Media_type
     /// </summary>
-    public string MimeType { get; }
+    public string MimeType { get; } = mime;
 
     /// <summary>
     /// The file extension
     /// </summary>
-    public string Extension { get; }
+    public string Extension { get; } = extension;
 
     /// <summary>
-    /// Creates a new instance of <see cref="FileType"/>
+    /// 
     /// </summary>
-    /// <param name="mime"></param>
+    /// <param name="mimeType"></param>
     /// <param name="extension"></param>
-    public FileType(string mime, string extension)
+    public void Deconstruct(out string mimeType, out string extension)
     {
-        MimeType = mime;
-        Extension = extension;
+        mimeType = MimeType;
+        extension = Extension;
     }
 }
