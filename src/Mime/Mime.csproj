@@ -38,6 +38,7 @@
     <None Include="runtimes\win-x86\native\*" PackagePath="runtimes/win-x86/native/" Pack="true" />
     <None Include="runtimes\win-arm64\native\*" PackagePath="runtimes/win-arm64/native/" Pack="true" />
     <None Include="runtimes\linux-x64\native\*" PackagePath="runtimes/linux-x64/native/" Pack="true" />
+    <None Include="runtimes\linux-arm64\native\*" PackagePath="runtimes/linux-arm64/native/" Pack="true" />
     <None Include="runtimes\linux-musl-x64\native\*" PackagePath="runtimes/linux-musl-x64/native/" Pack="true" />
     <None Include="runtimes\osx-x64\native\*" PackagePath="runtimes/osx-x64/native/" Pack="true" />
     <None Include="runtimes\osx-arm64\native\*" PackagePath="runtimes/osx-arm64/native/" Pack="true" />
@@ -46,6 +47,7 @@
     <None Include="content\*" PackagePath="runtimes/win-x86/native/" Pack="true" />
     <None Include="content\*" PackagePath="runtimes/win-arm64/native/" Pack="true" />
     <None Include="content\*" PackagePath="runtimes/linux-x64/native/" Pack="true" />
+    <None Include="content\*" PackagePath="runtimes/linux-arm64/native/" Pack="true" />
     <None Include="content\*" PackagePath="runtimes/linux-musl-x64/native/" Pack="true" />
     <None Include="content\*" PackagePath="runtimes/osx-x64/native/" Pack="true" />
     <None Include="content\*" PackagePath="runtimes/osx-arm64/native/" Pack="true" />

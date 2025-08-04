@@ -11,12 +11,15 @@ PM> Install-Package Mime
 ```
 
 ## Requirements
-Supported runtimes: 
+Supported runtimes:
+* linux-arm64
 * linux-musl-x64
 * linux-x64
 * osx-arm64(tested on macOS 13 Ventura)
 * osx-x64
+* win-arm64
 * win-x64
+* win-x86
 
 ## Basic usage
 ```C#
