@@ -39,6 +39,9 @@
   <ItemGroup Condition=" '$(IsX64)' == 'true' AND '$(IsLinux)' == 'true' ">
     <NativeLib Include="../../src/Mime/runtimes/linux-x64/native/*" />
   </ItemGroup>
+  <ItemGroup Condition=" '$(IsARM64)' == 'true' AND '$(IsLinux)' == 'true' ">
+    <NativeLib Include="../../src/Mime/runtimes/linux-arm64/native/*" />
+  </ItemGroup>
 
   <!-- OSX arm64 -->
   <ItemGroup Condition=" '$(IsARM64)' == 'true' AND '$(IsOSX)' == 'true' ">
