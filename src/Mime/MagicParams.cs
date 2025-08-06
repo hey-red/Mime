@@ -38,5 +38,20 @@ public enum MagicParams
     /// <summary>
     /// The parameter controls how many bytes read from file.
     /// </summary>
-    MAGIC_PARAM_BYTES_MAX
+    MAGIC_PARAM_BYTES_MAX,
+
+    /// <summary>
+    /// The parameter controls the maximum number of bytes to scan for encoding detection.
+    /// </summary>
+    MAGIC_PARAM_ENCODING_MAX,
+
+    /// <summary>
+    /// The parameter controls the maximum number of bytes in an elf section.
+    /// </summary>
+    MAGIC_PARAM_ELF_SHSIZE_MAX,
+
+    /// <summary>
+    /// The parameter controls the maximum number of warnings to tolerate in a magic file.
+    /// </summary>
+    MAGIC_PARAM_MAGWARN_MAX
 }
